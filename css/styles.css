@@ -1714,7 +1714,7 @@ img[src*="spiceafrica"] {
 }
 
 .news-card__link::after {
-    content: 'â†’';
+    content: '→';
     transition: transform var(--transition-base);
 }
 
