@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingz of Twinz | Entertainment & Events</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="images/favicon.jpg">
+    <link rel="apple-touch-icon" href="images/favicon.jpg">
+    <link rel="stylesheet" href="css/styles.css?v=1.1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Skip to Content (Accessibility) -->
+    <a href="#main-content" class="skip-link">Skip to Content</a>
+
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="nav__logo">
+                    <img src="images/logo.png" alt="Kingz of Twinz" class="logo-img">
+                </a>
+
+                <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+
+                <ul class="nav__menu" id="navMenu">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active">Home</a>
+                    </li>
+                    <li class="nav__item has-dropdown">
+                        <a href="#roster" class="nav__link">Roster</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#services" class="nav__link">Services</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#tours" class="nav__link">Tours</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#news" class="nav__link">News</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#bookings" class="nav__link">Bookings</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Slideshow -->
+    <section class="hero" id="home">
+        <!-- Slideshow Background -->
+        <div class="hero__slideshow">
+            <div class="hero__slide active">
+                <div class="hero__slide-bg">
+                    <img src="images/hero.jpg" alt="Kingz of Twinz Hero" loading="eager" srcset="images/hero.jpg 1200w, images/hero.jpg 2000w" sizes="100vw">
+                </div>
+            </div>
+            <div class="hero__slide">
+                <div class="hero__slide-bg">
+                    <img src="images/spiceafrica.jpg" alt="Spice Africa Tour" loading="lazy" srcset="images/spiceafrica.jpg 1200w, images/spiceafrica.jpg 2000w" sizes="100vw">
+                </div>
+            </div>
+            <div class="hero__slide">
+                <div class="hero__slide-bg">
+                    <img src="images/jahmeilafrica.jpg" alt="Jahmiel Africa Tour" loading="lazy" srcset="images/jahmeilafrica.jpg 1200w, images/jahmeilafrica.jpg 2000w" sizes="100vw">
+                </div>
+            </div>
+        </div>
+        <div class="hero__overlay"></div>
+
+        <!-- Slide Contents -->
+        <div class="hero__slides-content">
+            <!-- Slide 1: Main -->
+            <div class="hero__content active" data-slide="0">
+                <div class="hero__text">
+                    <div class="hero__logo">
+                        <img src="images/logo.png" alt="Kingz of Twinz" class="hero__logo-img">
+                    </div>
+                    <p class="hero__tagline">ENTERTAINMENT • EVENTS • PRODUCTIONS</p>
+                </div>
+                <div class="hero__cta">
+                    <a href="#roster" class="btn btn--primary">View Roster</a>
+                    <a href="#contact" class="btn btn--outline">Book Now</a>
+                </div>
+            </div>
+
+            <!-- Slide 2: Spice Tour -->
+            <div class="hero__content" data-slide="1">
+                <div class="hero__text">
+                    <h1 class="hero__title">
+                        <span class="title-reveal">SPICE</span>
+                        <span class="title-reveal delay">AFRICA TOUR</span>
+                    </h1>
+                    <p class="hero__tagline">MAY 2026 • DATES TBA</p>
+                </div>
+                <div class="hero__cta">
+                    <a href="#tours" class="btn btn--primary">View Tour</a>
+                    <a href="#contact" class="btn btn--outline">Book Now</a>
+                </div>
+            </div>
+
+            <!-- Slide 3: Jahmiel Tour -->
+            <div class="hero__content" data-slide="2">
+                <div class="hero__text">
+                    <h1 class="hero__title">
+                        <span class="title-reveal">JAHMIEL</span>
+                        <span class="title-reveal delay">AFRICA TOUR</span>
+                    </h1>
+                    <p class="hero__tagline">MAY 2026 • DATES TBA</p>
+                </div>
+                <div class="hero__cta">
+                    <a href="#tours" class="btn btn--primary">View Tour</a>
+                    <a href="#contact" class="btn btn--outline">Book Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero__scroll-indicator">
+            <span class="scroll-text">Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+
+        <!-- Hero Slider Navigation -->
+        <div class="hero__nav">
+            <button class="hero__nav-btn active" data-slide="0"></button>
+            <button class="hero__nav-btn" data-slide="1"></button>
+            <button class="hero__nav-btn" data-slide="2"></button>
+        </div>
+    </section>
+
+    <!-- Marquee Text -->
+    <div class="marquee">
+        <div class="marquee__content">
+            <span>ENTERTAINMENT</span>
+            <span class="marquee__dot"></span>
+            <span>EVENTS</span>
+            <span class="marquee__dot"></span>
+            <span>PRODUCTIONS</span>
+            <span class="marquee__dot"></span>
+            <span>TALENT MANAGEMENT</span>
+            <span class="marquee__dot"></span>
+            <span>ENTERTAINMENT</span>
+            <span class="marquee__dot"></span>
+            <span>EVENTS</span>
+            <span class="marquee__dot"></span>
+            <span>PRODUCTIONS</span>
+            <span class="marquee__dot"></span>
+            <span>TALENT MANAGEMENT</span>
+            <span class="marquee__dot"></span>
+        </div>
+    </div>
+
+    <!-- Stacking Sections Container -->
+    <div class="stacking-sections" id="stackingSections">
+
+    <!-- About Section -->
+    <div class="section-stack">
+    <div class="section-stack-inner">
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="about__grid">
+                <div class="about__content">
+                    <span class="section__tag">About Us</span>
+                    <h2 class="section__title section__title--block">Building Legacies.<br>Creating Moments.</h2>
+                    <p class="about__text">
+                        Kingz of Twinz is a premier entertainment company dedicated to creating unforgettable experiences.
+                        With years of expertise in event planning, production, and talent management, we bring your vision to life.
+                    </p>
+                    <div class="about__stats">
+                        <div class="stat">
+                            <span class="stat__number" data-count="500">0</span>
+                            <span class="stat__label">Events</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number" data-count="50">0</span>
+                            <span class="stat__label">Artists</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat__number" data-count="10">0</span>
+                            <span class="stat__label">Years</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about__visual">
+                    <div class="about__image-grid">
+                        <div class="about__img about__img--1">
+                            <img src="images/1.png" alt="Building legacies highlight 1" loading="lazy">
+                        </div>
+                        <div class="about__img about__img--2">
+                            <img src="images/2.png" alt="Building legacies highlight 2" loading="lazy">
+                        </div>
+                        <div class="about__img about__img--3">
+                            <img src="images/3.png" alt="Building legacies highlight 3" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+    </div>
+
+    <!-- Roster / Talent Section -->
+    <div class="section-stack">
+    <div class="section-stack-inner">
+    <section class="section roster" id="roster">
+        <div class="container">
+            <div class="section__header section__header--block">
+                <span class="section__tag">The Roster</span>
+                <h2 class="section__title section__title--block">Our Talent</h2>
+            </div>
+
+            <div class="roster__filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="artists">Artists</button>
+                <button class="filter-btn" data-filter="djs">DJs</button>
+            </div>
+
+            <div class="roster__grid">
+                <!-- Spice -->
+                <article class="talent-card" data-category="artists" data-artist="spice">
+                    <div class="talent-card__image">
+                        <img src="images/artists/spice.png" alt="Spice" loading="lazy">
+                        <div class="talent-card__overlay">
+                            <div class="talent-card__socials">
+                                <a href="https://www.instagram.com/spiceofficial/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg></a>
+                                <a href="https://twitter.com/spiceofficial" aria-label="Twitter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                                <a href="https://open.spotify.com/artist/0wEvWMQRqaXcgnrZv6KtyL" aria-label="Spotify" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 15s1.5-1 4-1 4 1 4 1M7 12s2-1.5 5-1.5 5 1.5 5 1.5M6 9s2.5-2 6-2 6 2 6 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Spice</h3>
+                        <p class="talent-card__role">Dancehall Queen</p>
+                    </div>
+                </article>
+
+                <!-- Beenie Man -->
+                <article class="talent-card" data-category="artists" data-artist="beenie-man">
+                    <div class="talent-card__image">
+                        <img src="images/artists/beenie.png" alt="Beenie Man" loading="lazy">
+                        <div class="talent-card__overlay">
+                            <div class="talent-card__socials">
+                                <a href="https://www.instagram.com/kingbeenieman/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg></a>
+                                <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                                <a href="https://open.spotify.com/artist/4L3GTE04bW5N7azA9QPhjA" aria-label="Spotify" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 15s1.5-1 4-1 4 1 4 1M7 12s2-1.5 5-1.5 5 1.5 5 1.5M6 9s2.5-2 6-2 6 2 6 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Beenie Man</h3>
+                        <p class="talent-card__role">King of Dancehall</p>
+                    </div>
+                </article>
+
+                <!-- Elephant Man -->
+                <article class="talent-card" data-category="artists" data-artist="elephant-man">
+                    <div class="talent-card__image">
+                        <img src="images/artists/elephantman.png" alt="Elephant Man" loading="lazy">
+                        <div class="talent-card__overlay">
+                            <div class="talent-card__socials">
+                                <a href="https://www.instagram.com/elephantmantheenergygod/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg></a>
+                                <a href="https://twitter.com/ElephantManJa" aria-label="Twitter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                                <a href="https://open.spotify.com/artist/6NOvBZrkd83MSD51xkq4on" aria-label="Spotify" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 15s1.5-1 4-1 4 1 4 1M7 12s2-1.5 5-1.5 5 1.5 5 1.5M6 9s2.5-2 6-2 6 2 6 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Elephant Man</h3>
+                        <p class="talent-card__role">Energy God</p>
+                    </div>
+                </article>
+
+                <!-- Konshens -->
+                <article class="talent-card" data-category="artists" data-artist="konshens">
+                    <div class="talent-card__image">
+                        <img src="images/artists/koshens.png" alt="Konshens" loading="lazy">
+                        <div class="talent-card__overlay">
+                            <div class="talent-card__socials">
+                                <a href="https://www.instagram.com/konshens/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg></a>
+                                <a href="https://twitter.com/konshens" aria-label="Twitter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                                <a href="https://open.spotify.com/artist/3nwYsifpwrKmCIpw4i0HDW" aria-label="Spotify" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 15s1.5-1 4-1 4 1 4 1M7 12s2-1.5 5-1.5 5 1.5 5 1.5M6 9s2.5-2 6-2 6 2 6 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Konshens</h3>
+                        <p class="talent-card__role">Dancehall Artist</p>
+                    </div>
+                </article>
+
+                <!-- Chris Martin -->
+                <article class="talent-card" data-category="artists" data-artist="christopher-martin">
+                    <div class="talent-card__image">
+                        <img src="images/artists/martin.jpg" alt="Chris Martin" loading="lazy">
+                        <div class="talent-card__overlay">
+                            <div class="talent-card__socials">
+                                <a href="https://www.instagram.com/iamchrismartin/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg></a>
+                                <a href="https://twitter.com/iamchrismartin" aria-label="Twitter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                                <a href="https://open.spotify.com/artist/3dXC1YPbnQPsfHPVkm1ipj" aria-label="Spotify" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 15s1.5-1 4-1 4 1 4 1M7 12s2-1.5 5-1.5 5 1.5 5 1.5M6 9s2.5-2 6-2 6 2 6 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Chris Martin</h3>
+                        <p class="talent-card__role">Reggae Artist</p>
+                    </div>
+                </article>
+
+                <!-- Gyptian -->
+                <article class="talent-card" data-category="artists" data-artist="gyptian">
+                    <div class="talent-card__image">
+                        <img src="images/artists/gyptian.png" alt="Gyptian" loading="lazy">
+                        <div class="talent-card__overlay">
+                            <div class="talent-card__socials">
+                                <a href="https://www.instagram.com/realgyptian/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg></a>
+                                <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                                <a href="https://open.spotify.com/artist/2JX4h8xm0hNxCB0aNBWzyi" aria-label="Spotify" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 15s1.5-1 4-1 4 1 4 1M7 12s2-1.5 5-1.5 5 1.5 5 1.5M6 9s2.5-2 6-2 6 2 6 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Gyptian</h3>
+                        <p class="talent-card__role">Reggae Artist</p>
+                    </div>
+                </article>
+
+                <!-- Tony Matterhorn -->
+                <article class="talent-card" data-category="djs" data-artist="tony-matterhorn">
+                    <div class="talent-card__image">
+                        <img src="images/artists/tony.webp" alt="Tony Matterhorn" loading="lazy">
+                        <div class="talent-card__overlay">
+                            <div class="talent-card__socials">
+                                <a href="https://www.instagram.com/tonymatterhorn4/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg></a>
+                                <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                                <a href="#" aria-label="Soundcloud"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Tony Matterhorn</h3>
+                        <p class="talent-card__role">Selector / DJ</p>
+                    </div>
+                </article>
+
+                <!-- Jahmiel -->
+                <article class="talent-card" data-category="artists" data-artist="jahmiel">
+                    <div class="talent-card__image">
+                        <img src="images/artists/jahmeil.webp" alt="Jahmiel" loading="lazy">
+                        <div class="talent-card__overlay">
+                            <div class="talent-card__socials">
+                                <a href="https://www.instagram.com/thegreatjahmiel/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg></a>
+                                <a href="https://twitter.com/THEGREATJAHMIEL" aria-label="Twitter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                                <a href="https://open.spotify.com/artist/1pcKqVZ7T90mJ2rKo9XWYV" aria-label="Spotify" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 15s1.5-1 4-1 4 1 4 1M7 12s2-1.5 5-1.5 5 1.5 5 1.5M6 9s2.5-2 6-2 6 2 6 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Jahmiel</h3>
+                        <p class="talent-card__role">Dancehall Artist</p>
+                    </div>
+                </article>
+
+                <!-- Jahvillani -->
+                <article class="talent-card" data-category="artists" data-artist="jahvillani">
+                    <div class="talent-card__image">
+                        <img src="images/artists/jahvillani.webp" alt="Jahvillani" loading="lazy">
+                        <div class="talent-card__overlay">
+                            <div class="talent-card__socials">
+                                <a href="https://www.instagram.com/jahvillani/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg></a>
+                                <a href="https://twitter.com/jahvillani" aria-label="Twitter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                                <a href="https://open.spotify.com/search/Jahvillani" aria-label="Spotify" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 15s1.5-1 4-1 4 1 4 1M7 12s2-1.5 5-1.5 5 1.5 5 1.5M6 9s2.5-2 6-2 6 2 6 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Jahvillani</h3>
+                        <p class="talent-card__role">Dancehall Artist</p>
+                    </div>
+                </article>
+
+                <!-- Pablo YG -->
+                <article class="talent-card" data-category="artists" data-artist="pablo-yg">
+                    <div class="talent-card__image">
+                        <img src="images/artists/pablo.png" alt="Pablo YG" loading="lazy">
+                        <div class="talent-card__overlay">
+                            <div class="talent-card__socials">
+                                <a href="https://www.instagram.com/official_pablo_yg/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg></a>
+                                <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                                <a href="https://open.spotify.com/artist/0JFNiVq6LHCFEJk9ilmh9K" aria-label="Spotify" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 15s1.5-1 4-1 4 1 4 1M7 12s2-1.5 5-1.5 5 1.5 5 1.5M6 9s2.5-2 6-2 6 2 6 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Pablo YG</h3>
+                        <p class="talent-card__role">Dancehall Artist</p>
+                    </div>
+                </article>
+
+                <!-- Shane O -->
+                <article class="talent-card" data-category="artists" data-artist="shane-o">
+                    <div class="talent-card__image">
+                        <img src="images/artists/shaneo.png" alt="Shane O" loading="lazy">
+                        <div class="talent-card__overlay">
+                            <div class="talent-card__socials">
+                                <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg></a>
+                                <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                                <a href="https://open.spotify.com/artist/3ZOaLn1Bn5j7Cb7fC2BLzF" aria-label="Spotify" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 15s1.5-1 4-1 4 1 4 1M7 12s2-1.5 5-1.5 5 1.5 5 1.5M6 9s2.5-2 6-2 6 2 6 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Shane O</h3>
+                        <p class="talent-card__role">Dancehall Artist</p>
+                    </div>
+                </article>
+
+                <!-- Jah Vinci -->
+                <article class="talent-card" data-category="artists" data-artist="jah-vinci">
+                    <div class="talent-card__image">
+                        <img src="images/artists/jah vinci.png" alt="Jah Vinci" loading="lazy">
+                        <div class="talent-card__overlay">
+                            <div class="talent-card__socials">
+                                <a href="https://www.instagram.com/realjahvinci/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg></a>
+                                <a href="https://twitter.com/RealJahVinci" aria-label="Twitter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                                <a href="https://open.spotify.com/artist/0mkixmQkcUeE6egKHW4ojh" aria-label="Spotify" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 15s1.5-1 4-1 4 1 4 1M7 12s2-1.5 5-1.5 5 1.5 5 1.5M6 9s2.5-2 6-2 6 2 6 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Jah Vinci</h3>
+                        <p class="talent-card__role">Dancehall Artist</p>
+                    </div>
+                </article>
+
+                <!-- Vanessa Bling -->
+                <article class="talent-card" data-category="artists" data-artist="vanessa-bling">
+                    <div class="talent-card__image">
+                        <img src="images/artists/bling.png" alt="Vanessa Bling" loading="lazy">
+                        <div class="talent-card__overlay">
+                            <div class="talent-card__socials">
+                                <a href="https://www.instagram.com/realvanessabling/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg></a>
+                                <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                                <a href="https://open.spotify.com/artist/1PiEUwpwwtIostNXewLUG1" aria-label="Spotify" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 15s1.5-1 4-1 4 1 4 1M7 12s2-1.5 5-1.5 5 1.5 5 1.5M6 9s2.5-2 6-2 6 2 6 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Vanessa Bling</h3>
+                        <p class="talent-card__role">Dancehall Artist</p>
+                    </div>
+                </article>
+
+                <!-- Aidonia -->
+                <article class="talent-card" data-category="artists" data-artist="aidonia">
+                    <div class="talent-card__image">
+                        <img src="images/artists/aidonia.avif" alt="Aidonia" loading="lazy">
+                        <div class="talent-card__overlay">
+                            <div class="talent-card__socials">
+                                <a href="https://www.instagram.com/aidonia4thgenna" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg></a>
+                                <a href="https://twitter.com/aidonia4thgenna" aria-label="Twitter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                                <a href="https://open.spotify.com/artist/1Qf3IElLkh0ZlFJ7c0nF2B" aria-label="Spotify" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 15s1.5-1 4-1 4 1 4 1M7 12s2-1.5 5-1.5 5 1.5 5 1.5M6 9s2.5-2 6-2 6 2 6 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Aidonia</h3>
+                        <p class="talent-card__role">Dancehall Artist</p>
+                    </div>
+                </article>
+
+                <!-- Govana -->
+                <article class="talent-card" data-category="artists" data-artist="govana">
+                    <div class="talent-card__image">
+                        <img src="images/artists/govana.jpg" alt="Govana" loading="lazy">
+                        <div class="talent-card__overlay">
+                            <div class="talent-card__socials">
+                                <a href="https://www.instagram.com/govana_ygf" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg></a>
+                                <a href="https://twitter.com/govana_ygf" aria-label="Twitter" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                                <a href="https://open.spotify.com/artist/0h5N9GfX9X0cBfF2T9uJfZ" aria-label="Spotify" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 15s1.5-1 4-1 4 1 4 1M7 12s2-1.5 5-1.5 5 1.5 5 1.5M6 9s2.5-2 6-2 6 2 6 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Govana</h3>
+                        <p class="talent-card__role">Dancehall Artist</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="roster__cta">
+                <a href="#" class="btn btn--outline">View Full Roster</a>
+            </div>
+        </div>
+    </section>
+    </div>
+    </div>
+
+    <!-- Services Section -->
+    <div class="section-stack">
+    <div class="section-stack-inner">
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section__header section__header--left section__header--block">
+                <span class="section__tag">What We Do</span>
+                <h2 class="section__title section__title--block">Services</h2>
+            </div>
+
+            <div class="services__grid">
+                <div class="service-item">
+                    <span class="service-item__number">01</span>
+                    <div class="service-item__content">
+                        <h3 class="service-item__title">Talent Management</h3>
+                        <p class="service-item__text">Full-service artist management including career development, branding, and strategic planning.</p>
+                    </div>
+                    <div class="service-item__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <span class="service-item__number">02</span>
+                    <div class="service-item__content">
+                        <h3 class="service-item__title">Event Production</h3>
+                        <p class="service-item__text">World-class event production from intimate gatherings to large-scale concerts and festivals.</p>
+                    </div>
+                    <div class="service-item__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <span class="service-item__number">03</span>
+                    <div class="service-item__content">
+                        <h3 class="service-item__title">Brand Partnerships</h3>
+                        <p class="service-item__text">Strategic brand collaborations and sponsorship opportunities for maximum impact.</p>
+                    </div>
+                    <div class="service-item__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                </div>
+
+                <div class="service-item">
+                    <span class="service-item__number">04</span>
+                    <div class="service-item__content">
+                        <h3 class="service-item__title">Media Production</h3>
+                        <p class="service-item__text">Professional video, photography, and content creation for all platforms.</p>
+                    </div>
+                    <div class="service-item__arrow">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+    </div>
+
+    <!-- Upcoming Tours Section -->
+    <div class="section-stack">
+    <div class="section-stack-inner">
+    <section class="section tours" id="tours">
+        <div class="container">
+            <div class="section__header section__header--block">
+                <span class="section__tag">Upcoming</span>
+                <h2 class="section__title section__title--block">Africa Tours 2026</h2>
+            </div>
+
+            <div class="tours__grid">
+                <!-- Spice Africa Tour -->
+                <article class="tour-card">
+                    <div class="tour-card__image">
+                        <img src="images/spiceafrica.jpg" alt="Spice Africa Tour May 2026" loading="lazy">
+                        <div class="tour-card__badge">May 2026</div>
+                    </div>
+                    <div class="tour-card__content">
+                        <h3 class="tour-card__title">Spice Africa Tour</h3>
+                        <p class="tour-card__presenter">King of Twins Ent. x Spice Official Ent</p>
+                        <p class="tour-card__description">The Queen of Dancehall is coming to Africa in May 2026! Guinea, Zimbabwe, Kenya, Mali, Senegal, Nigeria, Congo, Cameroon, Ghana, Ethiopia, Seychelles & more. Dates TBA soon.</p>
+                        <a href="#contact" class="btn btn--primary">Book Now</a>
+                    </div>
+                </article>
+
+                <!-- Jahmiel Africa Tour -->
+                <article class="tour-card">
+                    <div class="tour-card__image">
+                        <img src="images/jahmeilafrica.jpg" alt="Jahmiel Africa Tour May 2026" loading="lazy">
+                        <div class="tour-card__badge">May 2026</div>
+                    </div>
+                    <div class="tour-card__content">
+                        <h3 class="tour-card__title">Jahmiel Africa Tour</h3>
+                        <p class="tour-card__presenter">King of Twins Entertainment x Patridge Music</p>
+                        <p class="tour-card__description">Jahmiel is coming to Africa in May 2026! Guinea, Zimbabwe, Kenya, Mali, Senegal, Nigeria, Congo, Cameroon, Ghana, Ethiopia, Seychelles & more. Dates TBA soon.</p>
+                        <a href="#contact" class="btn btn--primary">Book Now</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    </div>
+    </div>
+
+    <!-- News / Announcements Section -->
+    <div class="section-stack">
+    <div class="section-stack-inner">
+    <section class="section news" id="news">
+        <div class="container">
+            <div class="news__header">
+                <div class="section__header section__header--left section__header--block">
+                    <span class="section__tag">Latest</span>
+                    <h2 class="section__title section__title--block">News & Updates</h2>
+                </div>
+                <div class="news__nav">
+                    <button class="news__nav-btn news__nav-btn--prev" aria-label="Previous">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                    </button>
+                    <button class="news__nav-btn news__nav-btn--next" aria-label="Next">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="news__carousel" id="newsCarousel">
+                <div class="news__track">
+                    <article class="news-card">
+                        <div class="news-card__image">
+                            <img src="images/spiceafrica.jpg" alt="Spice Africa Tour" loading="lazy">
+                        </div>
+                        <div class="news-card__content">
+                            <span class="news-card__date">May 2026</span>
+                            <h3 class="news-card__title">Spice Africa Tour Announced</h3>
+                            <p class="news-card__excerpt">The Dancehall Queen is coming to Africa in May 2026! Dates TBA soon...</p>
+                            <a href="#tours" class="news-card__link">View Tour</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="news-card__image">
+                            <img src="images/jahmeilafrica.jpg" alt="Jahmiel Africa Tour" loading="lazy">
+                        </div>
+                        <div class="news-card__content">
+                            <span class="news-card__date">May 2026</span>
+                            <h3 class="news-card__title">Jahmiel Africa Tour Announced</h3>
+                            <p class="news-card__excerpt">Jahmiel is coming to Africa in May 2026! Dates TBA soon...</p>
+                            <a href="#tours" class="news-card__link">View Tour</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card">
+                        <div class="news-card__image">
+                            <div class="image-placeholder"><span>News</span></div>
+                        </div>
+                        <div class="news-card__content">
+                            <span class="news-card__date">2026</span>
+                            <h3 class="news-card__title">More Tours Coming Soon</h3>
+                            <p class="news-card__excerpt">Stay tuned for more exciting tour announcements from Kingz of Twinz Entertainment...</p>
+                            <a href="#contact" class="news-card__link">Contact Us</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+    </div>
+
+    <!-- Bookings / Instagram Grid -->
+    <div class="section-stack">
+    <div class="section-stack-inner">
+    <section class="section bookings" id="bookings">
+        <div class="container">
+            <div class="section__header section__header--left section__header--block">
+                <span class="section__tag">Bookings</span>
+                <h2 class="section__title section__title--block">Live Moments</h2>
+            </div>
+            <div class="bookings__grid">
+                <div class="bookings__item"><img src="images/ig/266734019_619449049264971_5375437952144027697_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/266734019_619449049264971_5375437952144027697_n.jpg 400w, images/ig/266734019_619449049264971_5375437952144027697_n.jpg 800w, images/ig/266734019_619449049264971_5375437952144027697_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/36877349_281821792395627_7201405221782683648_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/36877349_281821792395627_7201405221782683648_n.jpg 400w, images/ig/36877349_281821792395627_7201405221782683648_n.jpg 800w, images/ig/36877349_281821792395627_7201405221782683648_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/45658159_2017001805022724_4166990695154027634_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/45658159_2017001805022724_4166990695154027634_n.jpg 400w, images/ig/45658159_2017001805022724_4166990695154027634_n.jpg 800w, images/ig/45658159_2017001805022724_4166990695154027634_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/462064500_1546897436217836_1540248781303674497_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/462064500_1546897436217836_1540248781303674497_n.jpg 400w, images/ig/462064500_1546897436217836_1540248781303674497_n.jpg 800w, images/ig/462064500_1546897436217836_1540248781303674497_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/462124473_932640388733219_854908587221227737_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/462124473_932640388733219_854908587221227737_n.jpg 400w, images/ig/462124473_932640388733219_854908587221227737_n.jpg 800w, images/ig/462124473_932640388733219_854908587221227737_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/463731140_1185919595910335_3128862824584107392_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/463731140_1185919595910335_3128862824584107392_n.jpg 400w, images/ig/463731140_1185919595910335_3128862824584107392_n.jpg 800w, images/ig/463731140_1185919595910335_3128862824584107392_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/465837026_1769646130504737_8322935465585002141_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/465837026_1769646130504737_8322935465585002141_n.jpg 400w, images/ig/465837026_1769646130504737_8322935465585002141_n.jpg 800w, images/ig/465837026_1769646130504737_8322935465585002141_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/467947952_924859272906678_5561779208023031072_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/467947952_924859272906678_5561779208023031072_n.jpg 400w, images/ig/467947952_924859272906678_5561779208023031072_n.jpg 800w, images/ig/467947952_924859272906678_5561779208023031072_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/472300633_596905536077309_7345646775756730059_n.jpeg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/472300633_596905536077309_7345646775756730059_n.jpeg 400w, images/ig/472300633_596905536077309_7345646775756730059_n.jpeg 800w, images/ig/472300633_596905536077309_7345646775756730059_n.jpeg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/480532594_18490409293041927_8086304694375824701_n.jpeg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/480532594_18490409293041927_8086304694375824701_n.jpeg 400w, images/ig/480532594_18490409293041927_8086304694375824701_n.jpeg 800w, images/ig/480532594_18490409293041927_8086304694375824701_n.jpeg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/503308951_18511831186041927_4947057984224485945_n.jpeg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/503308951_18511831186041927_4947057984224485945_n.jpeg 400w, images/ig/503308951_18511831186041927_4947057984224485945_n.jpeg 800w, images/ig/503308951_18511831186041927_4947057984224485945_n.jpeg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/51383608_129965324723161_745309299462688544_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/51383608_129965324723161_745309299462688544_n.jpg 400w, images/ig/51383608_129965324723161_745309299462688544_n.jpg 800w, images/ig/51383608_129965324723161_745309299462688544_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/53176290_2219830718073459_2129301588176417987_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/53176290_2219830718073459_2129301588176417987_n.jpg 400w, images/ig/53176290_2219830718073459_2129301588176417987_n.jpg 800w, images/ig/53176290_2219830718073459_2129301588176417987_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/54277431_122901875467228_1467252743226376420_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/54277431_122901875467228_1467252743226376420_n.jpg 400w, images/ig/54277431_122901875467228_1467252743226376420_n.jpg 800w, images/ig/54277431_122901875467228_1467252743226376420_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/62232829_449576205827388_8578147633819141103_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/62232829_449576205827388_8578147633819141103_n.jpg 400w, images/ig/62232829_449576205827388_8578147633819141103_n.jpg 800w, images/ig/62232829_449576205827388_8578147633819141103_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/62469544_2309928665696210_7995506409002477398_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/62469544_2309928665696210_7995506409002477398_n.jpg 400w, images/ig/62469544_2309928665696210_7995506409002477398_n.jpg 800w, images/ig/62469544_2309928665696210_7995506409002477398_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/71902680_754874128258813_279548981764314488_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/71902680_754874128258813_279548981764314488_n.jpg 400w, images/ig/71902680_754874128258813_279548981764314488_n.jpg 800w, images/ig/71902680_754874128258813_279548981764314488_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/80830249_1325152521026522_8593971001597541808_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/80830249_1325152521026522_8593971001597541808_n.jpg 400w, images/ig/80830249_1325152521026522_8593971001597541808_n.jpg 800w, images/ig/80830249_1325152521026522_8593971001597541808_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/82542585_148230243266751_5934727169166290290_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/82542585_148230243266751_5934727169166290290_n.jpg 400w, images/ig/82542585_148230243266751_5934727169166290290_n.jpg 800w, images/ig/82542585_148230243266751_5934727169166290290_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/SnapInsta.to_468563432_8896399840418543_1231492649070510861_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/SnapInsta.to_468563432_8896399840418543_1231492649070510861_n.jpg 400w, images/ig/SnapInsta.to_468563432_8896399840418543_1231492649070510861_n.jpg 800w, images/ig/SnapInsta.to_468563432_8896399840418543_1231492649070510861_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/SnapInsta.to_469259586_1224971591949658_7172532938686717709_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/SnapInsta.to_469259586_1224971591949658_7172532938686717709_n.jpg 400w, images/ig/SnapInsta.to_469259586_1224971591949658_7172532938686717709_n.jpg 800w, images/ig/SnapInsta.to_469259586_1224971591949658_7172532938686717709_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+                <div class="bookings__item"><img src="images/ig/SnapInsta.to_470798855_604093172087057_7638126438315670500_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/SnapInsta.to_470798855_604093172087057_7638126438315670500_n.jpg 400w, images/ig/SnapInsta.to_470798855_604093172087057_7638126438315670500_n.jpg 800w, images/ig/SnapInsta.to_470798855_604093172087057_7638126438315670500_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
+            </div>
+        </div>
+    </section>
+    </div>
+    </div>
+
+    <!-- Booking Image Modal -->
+    <div class="booking-modal" id="bookingModal" aria-hidden="true">
+        <div class="booking-modal__overlay" data-booking-close></div>
+        <div class="booking-modal__dialog" role="dialog" aria-modal="true" aria-label="Booking image" tabindex="-1">
+            <button class="booking-modal__close" type="button" aria-label="Close" data-booking-close>&times;</button>
+            <img src="" alt="" class="booking-modal__image" id="bookingModalImage">
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="section-stack">
+    <div class="section-stack-inner">
+    <section class="section cta">
+        <div class="cta__bg"></div>
+        <div class="container">
+            <div class="cta__content">
+                <h2 class="cta__title">Ready to Elevate<br>Your Vision?</h2>
+                <p class="cta__text">Let's create something extraordinary together.</p>
+                <a href="#contact" class="btn btn--primary btn--large">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+    </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="section-stack">
+    <div class="section-stack-inner">
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="contact__grid">
+                <div class="contact__info">
+                    <span class="section__tag">Contact</span>
+                    <h2 class="section__title section__title--block">Let's Work<br>Together</h2>
+                    <p class="contact__text">Ready to take your project to the next level? We'd love to hear from you.</p>
+
+                    <div class="contact__details">
+                        <div class="contact__item">
+                            <span class="contact__label">Email</span>
+                            <a href="mailto:Bookings@kingzoftwinz.com" class="contact__value">Bookings@kingzoftwinz.com</a>
+                        </div>
+                        <div class="contact__item">
+                            <span class="contact__label">Phone</span>
+                            <a href="tel:+18768175209" class="contact__value">+1 (876) 817-5209</a>
+                        </div>
+                        <div class="contact__item">
+                            <span class="contact__label">Location</span>
+                            <span class="contact__value">Kingston, Jamaica</span>
+                        </div>
+                    </div>
+
+                    <div class="contact__social">
+                        <a href="https://www.instagram.com/kingzoftwinzentertainment/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#000"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact__form-wrapper">
+                    <form class="contact__form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Name</label>
+                            <span class="form-line"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Email</label>
+                            <span class="form-line"></span>
+                        </div>
+                        <div class="form-group">
+                            <select id="inquiry" name="inquiry" required>
+                                <option value="" disabled selected></option>
+                                <option value="booking">Booking Inquiry</option>
+                                <option value="management">Management</option>
+                                <option value="press">Press / Media</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <label for="inquiry">Inquiry Type</label>
+                            <span class="form-line"></span>
+                        </div>
+                        <div class="form-group form-group--full">
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                            <label for="message">Message</label>
+                            <span class="form-line"></span>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+    </div>
+
+    <!-- Artist Modal -->
+    <div class="artist-modal" id="artistModal" aria-hidden="true">
+        <div class="artist-modal__overlay" data-modal-close></div>
+        <div class="artist-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="artistModalTitle" tabindex="-1">
+            <button class="artist-modal__close" type="button" aria-label="Close" data-modal-close>&times;</button>
+            <div class="artist-modal__content">
+                <div class="artist-modal__media">
+                    <img src="" alt="" class="artist-modal__image" id="artistModalImage">
+                </div>
+                <div class="artist-modal__body">
+                    <p class="artist-modal__eyebrow" id="artistModalGenre"></p>
+                    <h3 class="artist-modal__title" id="artistModalTitle"></h3>
+                    <p class="artist-modal__subtitle" id="artistModalSubtitle"></p>
+                    <ul class="artist-modal__details" id="artistModalDetails"></ul>
+                    <a href="#contact" class="btn btn--primary" data-modal-close>Book with Kingz of Twinz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <!-- Brand Column -->
+                <div class="footer__brand">
+                    <a href="#" class="footer__logo">
+                        <img src="images/logo.png" alt="Kingz of Twinz" class="footer-logo-img">
+                    </a>
+                    <p class="footer__tagline">Jamaica's Premier Entertainment & Talent Management Company</p>
+                    <div class="footer__social">
+                        <a href="https://www.instagram.com/kingzoftwinzentertainment/" target="_blank" rel="noopener" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                        </a>
+                        <a href="#" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#000"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer__column">
+                    <h4 class="footer__heading">Quick Links</h4>
+                    <ul class="footer__links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#roster">Our Roster</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#tours">Upcoming Tours</a></li>
+                        <li><a href="#news">News</a></li>
+                        <li><a href="#bookings">Bookings</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="footer__column">
+                    <h4 class="footer__heading">Services</h4>
+                    <ul class="footer__links">
+                        <li><a href="#services">Talent Management</a></li>
+                        <li><a href="#services">Event Production</a></li>
+                        <li><a href="#services">Brand Partnerships</a></li>
+                        <li><a href="#services">Media Production</a></li>
+                        <li><a href="#contact">Artist Booking</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer__column">
+                    <h4 class="footer__heading">Contact Us</h4>
+                    <ul class="footer__contact">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>Kingston, Jamaica</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <a href="tel:+18768175209">+1 (876) 817-5209</a>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <a href="mailto:Bookings@kingzoftwinz.com">Bookings@kingzoftwinz.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p>&copy; 2026 Kingz of Twinz Entertainment. All rights reserved.</p>
+                <div class="footer__legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
