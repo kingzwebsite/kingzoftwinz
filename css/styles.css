@@ -330,12 +330,27 @@ input, textarea, select {
     transition: all var(--transition-base);
     background: transparent;
     backdrop-filter: none;
+    isolation: isolate;
 }
 
 .header.scrolled {
+    padding: 6px 0;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(16px);
-    padding: 6px 0;
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.header.scrolled::before {
+    opacity: 1;
 }
 
 .nav {
@@ -933,7 +948,11 @@ img[src*="spiceafrica"] {
 }
 
 .about__content {
-    grid-column: span 5;
+    grid-column: span 12;
+    max-width: 920px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .about__text {
@@ -941,11 +960,24 @@ img[src*="spiceafrica"] {
     font-size: 1.125rem;
     line-height: 1.8;
     margin-bottom: var(--spacing-xl);
+    max-width: 60ch;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .about__stats {
     display: flex;
-    gap: var(--spacing-2xl);
+    gap: var(--spacing-xl);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.about .section__title--block {
+    max-width: 60ch;
+    font-size: clamp(3.4rem, 9vw, 7rem);
+    line-height: 0.95;
+    margin: 0 auto var(--spacing-md);
+    text-align: center;
 }
 
 .stat {
@@ -975,7 +1007,7 @@ img[src*="spiceafrica"] {
 /* About Image Grid */
 .about__visual {
     position: relative;
-    grid-column: span 7;
+    grid-column: span 12;
 }
 
 .about__image-grid {
@@ -983,6 +1015,7 @@ img[src*="spiceafrica"] {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 200px);
     gap: var(--spacing-md);
+    display: none;
 }
 
 .about__img {

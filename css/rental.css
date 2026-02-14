@@ -386,6 +386,13 @@ input {
     font-size: 0.8rem;
 }
 
+.car-card__price {
+    margin: 0 0 12px;
+    font-weight: 700;
+    color: #1b1b1f;
+    font-size: 0.9rem;
+}
+
 .car-card__tag {
     display: inline-block;
     background: #111;
@@ -463,7 +470,7 @@ input {
 
 .booking-hero__grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
     gap: 32px;
     align-items: start;
 }
@@ -506,6 +513,15 @@ input {
     display: block;
 }
 
+.booking-car {
+    margin-top: 20px;
+}
+
+.booking-hero__panel {
+    display: grid;
+    gap: 16px;
+}
+
 .booking-switch__btn {
     border: 1px solid var(--rental-border);
     background: #ffffff;
@@ -536,6 +552,73 @@ input {
     text-transform: uppercase;
     letter-spacing: 0.6px;
     color: var(--rental-accent);
+    text-align: center;
+}
+
+.booking-summary {
+    background: #ffffff;
+    border: 1px solid var(--rental-border);
+    border-radius: var(--rental-radius);
+    padding: 20px;
+    box-shadow: var(--rental-shadow);
+}
+
+.booking-summary h3 {
+    margin: 0 0 12px;
+    font-family: var(--rental-font-display);
+}
+
+.booking-summary__line,
+.booking-summary__total,
+.booking-summary__note {
+    margin: 0 0 8px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    color: var(--rental-muted);
+}
+
+.booking-summary__total {
+    color: #1b1b1f;
+    font-weight: 700;
+}
+
+.booking-summary__note {
+    font-size: 0.85rem;
+    color: var(--rental-accent);
+    justify-content: flex-start;
+}
+
+.booking-rules {
+    background: #ffffff;
+    border: 1px solid var(--rental-border);
+    border-radius: var(--rental-radius);
+    padding: 20px;
+    box-shadow: var(--rental-shadow);
+}
+
+.booking-rules h3 {
+    margin: 0 0 12px;
+    font-family: var(--rental-font-display);
+}
+
+.booking-rules ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 8px;
+    color: var(--rental-muted);
+}
+
+.booking-rules li::before {
+    content: '•';
+    color: var(--rental-accent);
+    margin-right: 8px;
+}
+
+.booking-rules li::before {
+    content: '-';
 }
 
 .booking-form label {
@@ -550,6 +633,8 @@ input {
     padding: 12px 14px;
     border: 1px solid var(--rental-border);
     border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .booking-form__cta {
@@ -569,12 +654,15 @@ input {
 .car-detail {
     display: none;
     gap: 24px;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    grid-template-columns: 1fr;
     align-items: start;
     position: relative;
-    padding: 28px;
+    padding: 18px;
     border-radius: 18px;
     overflow: hidden;
+    background: #ffffff;
+    border: 1px solid var(--rental-border);
+    box-shadow: var(--rental-shadow);
 }
 
 .car-detail.is-active {
@@ -602,7 +690,7 @@ input {
 
 .car-detail__media img {
     width: 100%;
-    height: 220px;
+    height: 160px;
     object-fit: cover;
     border-radius: 14px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -629,6 +717,7 @@ input {
     padding: 0;
     margin: 0;
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
 }
 
