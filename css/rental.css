@@ -91,11 +91,15 @@ input {
     font-size: 0.95rem;
     font-weight: 600;
     margin-left: 20px;
+    align-items: center;
 }
 
 .rental-links a {
     color: #1b1b1f;
     transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
 }
 
 .rental-links a:hover {
