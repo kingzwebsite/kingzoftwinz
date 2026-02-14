@@ -1061,6 +1061,9 @@ img[src*="spiceafrica"] {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .talent-card__image {
@@ -1162,6 +1165,10 @@ img[src*="spiceafrica"] {
 .talent-card__info {
     padding: var(--spacing-md) 0;
     text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .talent-card__name {

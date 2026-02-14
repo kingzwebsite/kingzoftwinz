@@ -801,6 +801,22 @@ function initArtistModals() {
             genres: 'Dancehall and Afro-Dancehall.',
             description: 'New-gen dancehall leader recognized for gritty storytelling, melodic delivery, and socially conscious lyrics. Broke out mid-2010s and became one of Jamaica’s most streamed artists.',
             metrics: 'Spotify monthly listeners: about 1.2M-1.6M. Multiple songs with 30M-100M+ YouTube views and albums charted on Billboard Reggae.'
+        },
+        'dyani': {
+            name: "D'yani",
+            subtitle: 'Andre Chavanie McCormack',
+            dob: 'Born May 24, 1994 in Jamaica.',
+            genres: 'Reggae and dancehall.',
+            description: "Jamaican singer-songwriter blending reggae and dancehall with soulful melodies and expressive lyrics. Performed at Sting and Reggae Sumfest with steady streaming growth.",
+            metrics: 'Spotify monthly listeners around 334K with an active YouTube channel featuring music videos and EP releases.'
+        },
+        'stylo-g': {
+            name: 'Stylo G',
+            subtitle: 'Jason Andre McDermott',
+            dob: 'Born 16 July 1985 (about 40 years old).',
+            genres: 'Dancehall, reggae fusion, grime, hip-hop influences.',
+            description: 'British-Jamaican artist known for blending dancehall and UK grime. Broke internationally with "Soundbwoy" and collaborations like "Come Over" with Clean Bandit.',
+            metrics: '"Soundbwoy" peaked at #18 on the UK Singles Chart with millions of streams across Spotify and YouTube.'
         }
     };
 
