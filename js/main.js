@@ -454,6 +454,19 @@ function initNewsCarousel() {
 ======================================== */
 function initContactForm() {
     const form = document.getElementById('contactForm');
+    const dateInput = form?.querySelector('input[type="date"]');
+    const dateTrigger = form?.querySelector('.date-trigger');
+
+    function openDatePicker() {
+        if (!dateInput) return;
+        if (typeof dateInput.showPicker === 'function') {
+            dateInput.showPicker();
+            return;
+        }
+        dateInput.focus();
+    }
+
+    dateTrigger?.addEventListener('click', openDatePicker);
 
     form?.addEventListener('submit', (e) => {
         e.preventDefault();
