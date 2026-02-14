@@ -332,7 +332,8 @@ function initRosterFilter() {
             talentCards.forEach(card => {
                 const category = card.dataset.category;
 
-                if (filter === 'all' || category === filter) {
+                const showInAll = category !== 'gfx';
+                if ((filter === 'all' && showInAll) || category === filter) {
                     card.style.display = '';
                     setTimeout(() => {
                         card.style.opacity = '1';
@@ -352,6 +353,13 @@ function initRosterFilter() {
     // Initialize card styles
     talentCards.forEach(card => {
         card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    });
+
+    // Hide gfx/web items by default when "All" is active
+    talentCards.forEach(card => {
+        if (card.dataset.category === 'gfx') {
+            card.style.display = 'none';
+        }
     });
 }
 
@@ -817,6 +825,22 @@ function initArtistModals() {
             genres: 'Dancehall, reggae fusion, grime, hip-hop influences.',
             description: 'British-Jamaican artist known for blending dancehall and UK grime. Broke internationally with "Soundbwoy" and collaborations like "Come Over" with Clean Bandit.',
             metrics: '"Soundbwoy" peaked at #18 on the UK Singles Chart with millions of streams across Spotify and YouTube.'
+        },
+        'pesi-graphics': {
+            name: 'PESI Graphics',
+            subtitle: 'Peter Urio',
+            dob: 'Origin: Tanzania.',
+            genres: 'Graphic design, digital art, content creation, branding, visual arts.',
+            description: 'PESI Graphics is a Tanzania-based creative design brand led by Peter Urio. The team delivers bold visuals, modern branding, and impactful digital content for artists, entrepreneurs, and businesses locally and internationally.',
+            metrics: 'Instagram (brand): 9,385+ followers and 798 posts. Instagram (personal): 1,623+ followers. Collaborations accepted; serious enquiries only.'
+        },
+        '876-interactive': {
+            name: '876 Interactive',
+            subtitle: 'Ruel Mark-Anthony McNeil',
+            dob: 'Origin: Jamaica.',
+            genres: 'Web development, AI automation, software solutions, digital innovation.',
+            description: '876 Interactive is a Jamaica-based web development and AI automation studio delivering modern, scalable applications and intelligent workflows that streamline operations and help businesses scale.',
+            metrics: 'Core services include custom web apps, AI automation, dashboards/admin panels, API integration, and secure, scalable system design.'
         }
     };
 

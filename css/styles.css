@@ -1120,6 +1120,7 @@ img[src*="spiceafrica"] {
     transform: scale(1.1);
 }
 
+
 .talent-card__image .image-placeholder {
     transition: transform var(--transition-slow);
 }
