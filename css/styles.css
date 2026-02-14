@@ -1202,7 +1202,8 @@ img[src*="spiceafrica"] {
     align-items: center;
     justify-content: center;
     padding: var(--spacing-lg);
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px) brightness(1.08);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -1225,7 +1226,8 @@ img[src*="spiceafrica"] {
     position: relative;
     background: #0b0b0b;
     border: 1px solid var(--color-gray-800);
-    width: min(100%, 980px);
+    width: min(92vw, 880px);
+    max-height: min(90vh, 720px);
     overflow: hidden;
     z-index: 1;
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
@@ -1233,8 +1235,8 @@ img[src*="spiceafrica"] {
 
 .artist-modal__close {
     position: absolute;
-    top: 12px;
-    right: 16px;
+    top: 10px;
+    right: 10px;
     font-size: 28px;
     line-height: 1;
     width: 40px;
@@ -1253,7 +1255,8 @@ img[src*="spiceafrica"] {
 .artist-modal__content {
     position: relative;
     display: block;
-    padding: var(--spacing-xl);
+    padding: clamp(20px, 3vw, 32px);
+    max-height: min(90vh, 720px);
 }
 
 .artist-modal__media {
@@ -1261,7 +1264,7 @@ img[src*="spiceafrica"] {
     inset: 0;
     background: var(--color-gray-900);
     overflow: hidden;
-    opacity: 0.18;
+    opacity: 0.3;
     pointer-events: none;
 }
 
@@ -1270,7 +1273,7 @@ img[src*="spiceafrica"] {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: saturate(0.85) contrast(1.05);
+    filter: saturate(0.95) contrast(1.05) brightness(1.08);
 }
 
 .artist-modal__media::after {
@@ -2692,7 +2695,8 @@ a.contact__value:hover {
     }
 
     .artist-modal__dialog {
-        max-height: none;
+        width: min(94vw, 820px);
+        max-height: 90vh;
     }
 
     .artist-modal__content {
