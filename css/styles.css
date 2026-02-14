@@ -332,15 +332,36 @@ input, textarea, select {
     backdrop-filter: none;
 }
 
-.header.scrolled {
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-bg-height, 90px);
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(16px);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.header.scrolled {
+    background: transparent;
+    backdrop-filter: none;
+}
+
+.header.scrolled::before {
+    opacity: 1;
 }
 
 .nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+    z-index: 1;
 }
 
 .nav__logo {
@@ -368,12 +389,12 @@ input, textarea, select {
 }
 
 .header.scrolled .nav__logo {
-    transform: scale(0.72);
+    transform: scale(0.62);
 }
 
 .header.scrolled .nav__link {
-    font-size: 0.75rem;
-    letter-spacing: 1.5px;
+    font-size: 0.7rem;
+    letter-spacing: 1.2px;
 }
 
 .nav__menu {
@@ -2421,6 +2442,7 @@ a.contact__value:hover {
         --container-padding: 1.5rem;
         --spacing-3xl: 5rem;
         --grid-gap: var(--spacing-lg);
+        --header-bg-height: 80px;
     }
 
     .about__grid {
@@ -2471,6 +2493,7 @@ a.contact__value:hover {
         --spacing-2xl: 3rem;
         --spacing-3xl: 4rem;
         --grid-gap: var(--spacing-md);
+        --header-bg-height: 72px;
     }
 
     /* Navigation */
