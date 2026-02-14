@@ -131,6 +131,25 @@ input {
     filter: brightness(0) saturate(100%) invert(1);
 }
 
+.rental-social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--rental-border);
+    color: #1b1b1f;
+}
+
+.rental-social svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+}
+
 .rental-actions {
     display: flex;
     align-items: center;
@@ -230,6 +249,15 @@ input {
     gap: 18px;
 }
 
+.booking-bar__note {
+    margin: 0;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 0 6px 16px rgba(0, 0, 0, 0.55);
+}
+
 .booking-strip {
     display: grid;
     grid-template-columns: 1.6fr 0.8fr 0.8fr;
@@ -251,6 +279,8 @@ input {
     background-repeat: no-repeat;
     background-position: 14px center;
     background-size: 18px 18px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .booking-strip input:focus,
@@ -498,6 +528,14 @@ input {
     display: grid;
     gap: 16px;
     box-shadow: var(--rental-shadow);
+}
+
+.booking-form__note {
+    margin: 8px 0 0;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--rental-accent);
 }
 
 .booking-form label {
