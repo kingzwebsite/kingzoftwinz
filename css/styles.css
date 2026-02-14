@@ -368,7 +368,12 @@ input, textarea, select {
 }
 
 .header.scrolled .nav__logo {
-    transform: scale(0.82);
+    transform: scale(0.72);
+}
+
+.header.scrolled .nav__link {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
 }
 
 .nav__menu {
