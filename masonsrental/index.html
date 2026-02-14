@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingz of Twinz Rentals</title>
+    <link rel="icon" type="image/jpeg" href="../images/favicon.jpg">
+    <link rel="stylesheet" href="../css/rental.css?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Vercel Web Analytics -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body class="rental-body">
+    <header class="rental-header">
+        <div class="rental-container">
+            <div class="rental-nav">
+                <a class="rental-logo" href="../index.html">
+                    <img src="../images/rental/logo.png" alt="Kingz of Twinz Rentals">
+                    <span class="rental-logo__text">MASONS RENTAL</span>
+                </a>
+                <nav class="rental-links">
+                    <a href="./">Home</a>
+                    <a href="booking/">Booking</a>
+                    <a href="../index.html" class="rental-link--cta" aria-label="Kingz of Twinz main site">
+                        <img src="../images/logo.png" alt="Kingz of Twinz">
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero__media" role="img" aria-label="Scenic road for rental promotions">
+                <span class="hero__slide hero__slide--one"></span>
+            </div>
+            <div class="rental-container hero__inner">
+                <div class="hero__content">
+                    <img class="hero__logo" src="../images/rental/logo.png" alt="Masons Rental">
+                    <p>Where every drive feels like a vacation.</p>
+                </div>
+                <div class="booking-bar" id="booking">
+                    <div class="booking-strip">
+                        <input class="booking-input booking-input--location" type="text" placeholder="Enter your pick-up location or parish" list="jamaica-parishes" autocomplete="off">
+                        <datalist id="jamaica-parishes">
+                            <option value="Kingston"></option>
+                            <option value="St. Andrew"></option>
+                            <option value="St. Thomas"></option>
+                            <option value="Portland"></option>
+                            <option value="St. Mary"></option>
+                            <option value="St. Ann"></option>
+                            <option value="Trelawny"></option>
+                            <option value="St. James"></option>
+                            <option value="Hanover"></option>
+                            <option value="Westmoreland"></option>
+                            <option value="St. Elizabeth"></option>
+                            <option value="Manchester"></option>
+                            <option value="Clarendon"></option>
+                            <option value="St. Catherine"></option>
+                        </datalist>
+                        <input class="booking-input booking-input--date" type="date" aria-label="Pick-up date">
+                        <select class="booking-input booking-input--time" aria-label="Pick-up time">
+                            <option value="" disabled selected>Select time</option>
+                            <option>08:00 AM</option>
+                            <option>09:00 AM</option>
+                            <option>10:00 AM</option>
+                            <option>11:00 AM</option>
+                            <option>12:00 PM</option>
+                            <option>01:00 PM</option>
+                            <option>02:00 PM</option>
+                            <option>03:00 PM</option>
+                            <option>04:00 PM</option>
+                            <option>05:00 PM</option>
+                            <option>06:00 PM</option>
+                        </select>
+                    </div>
+                    <button class="booking-cta" type="button">Book Now</button>
+                    <p class="booking-bar__note">No deposit, no reservation.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="fleet" id="fleet">
+            <div class="rental-container">
+                <div class="section-head">
+                    <h2>Featured vehicles</h2>
+                </div>
+                <div class="card-grid">
+                    <article class="car-card">
+                        <div class="car-card__body">
+                            <h3>TOYOTA AQUA</h3>
+                            <p>Fuel efficient city hatchback</p>
+                            <p class="car-card__price">JMD 8,000 / day</p>
+                            <span class="car-card__tag">ECONOMY</span>
+                            <img class="car-card__photo" src="../images/rental/car1.png" alt="Toyota Aqua">
+                            <a class="car-card__cta" href="booking/#toyota">Book Now</a>
+                        </div>
+                    </article>
+                    <article class="car-card">
+                        <div class="car-card__body">
+                            <h3>NISSAN SYLPHY</h3>
+                            <p>Comfortable sedan with smooth ride</p>
+                            <p class="car-card__price">JMD 9,000 / day</p>
+                            <span class="car-card__tag">POPULAR</span>
+                            <img class="car-card__photo" src="../images/rental/car2.png" alt="Nissan Sylphy">
+                            <a class="car-card__cta" href="booking/#nissan">Book Now</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rental-footer" id="contact">
+        <div class="rental-container rental-footer__grid">
+            <div>
+                <img src="../images/rental/logo.png" alt="Kingz of Twinz Rentals">
+                <p>Premium rentals backed by the Kingz of Twinz experience.</p>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <p>Bookings@kingzoftwinz.com</p>
+                <p>+1 (876) 817-5209</p>
+                <p>
+                    <a class="rental-social" href="https://www.instagram.com/masonsluxerentalsja/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <circle cx="17.5" cy="6.5" r="1.2"></circle>
+                        </svg>
+                    </a>
+                </p>
+            </div>
+            <div>
+                <h4>Office</h4>
+                <p>Kingston, Jamaica</p>
+                <p>Mon-Fri: 9am - 6pm</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

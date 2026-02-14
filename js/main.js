@@ -330,10 +330,10 @@ function initRosterFilter() {
 
             // Filter cards
             talentCards.forEach(card => {
-                const category = card.dataset.category;
-
-                const showInAll = category !== 'gfx';
-                if ((filter === 'all' && showInAll) || category === filter) {
+                const category = card.dataset.category || '';
+                const categories = category.split(/\s+/).filter(Boolean);
+                const showInAll = !categories.includes('gfx');
+                if ((filter === 'all' && showInAll) || categories.includes(filter)) {
                     card.style.display = '';
                     setTimeout(() => {
                         card.style.opacity = '1';
@@ -357,7 +357,9 @@ function initRosterFilter() {
 
     // Hide gfx/web items by default when "All" is active
     talentCards.forEach(card => {
-        if (card.dataset.category === 'gfx') {
+        const category = card.dataset.category || '';
+        const categories = category.split(/\s+/).filter(Boolean);
+        if (categories.includes('gfx')) {
             card.style.display = 'none';
         }
     });
@@ -841,6 +843,14 @@ function initArtistModals() {
             genres: 'Web development, AI automation, software solutions, digital innovation.',
             description: '876 Interactive is a Jamaica-based web development and AI automation studio delivering modern, scalable applications and intelligent workflows that streamline operations and help businesses scale.',
             metrics: 'Core services include custom web apps, AI automation, dashboards/admin panels, API integration, and secure, scalable system design.'
+        },
+        'carlos-a-team': {
+            name: 'Carlos A Team',
+            subtitle: 'Carlos A Team',
+            dob: 'Base: Jamaica.',
+            genres: 'Media, events, promotions, creative direction, entertainment.',
+            description: 'Jamaica-based creative media and event brand focused on high-energy experiences, visual storytelling, and promotional campaigns within entertainment and nightlife culture.',
+            metrics: 'Affiliations: @ateammedia, @zerodegreezparty, @aftermathja. Business inquiries via @thebookofsamms. Brand philosophy: Today, not tomorrow.'
         }
     };
 

@@ -1260,8 +1260,8 @@ img[src*="spiceafrica"] {
     position: relative;
     background: #0b0b0b;
     border: 1px solid var(--color-gray-800);
-    width: min(92vw, 880px);
-    max-height: min(90vh, 720px);
+    width: min(90vw, 760px);
+    max-height: min(85vh, 620px);
     overflow: hidden;
     z-index: 1;
     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
@@ -1289,8 +1289,9 @@ img[src*="spiceafrica"] {
 .artist-modal__content {
     position: relative;
     display: block;
-    padding: clamp(20px, 3vw, 32px);
-    max-height: min(90vh, 720px);
+    padding: clamp(18px, 2.5vw, 28px);
+    max-height: min(85vh, 620px);
+    overflow: auto;
 }
 
 .artist-modal__media {
@@ -1321,7 +1322,7 @@ img[src*="spiceafrica"] {
 .artist-modal__body {
     position: relative;
     z-index: 1;
-    max-width: 560px;
+    max-width: 520px;
 }
 
 .artist-modal__eyebrow {
@@ -2729,8 +2730,8 @@ a.contact__value:hover {
     }
 
     .artist-modal__dialog {
-        width: min(94vw, 820px);
-        max-height: 90vh;
+        width: min(92vw, 720px);
+        max-height: 82vh;
     }
 
     .artist-modal__content {
