@@ -948,8 +948,18 @@ function initBookingModal() {
     const closeButtons = modal.querySelectorAll('[data-booking-close]');
     const dialog = modal.querySelector('.booking-modal__dialog');
     let lastFocusedElement = null;
+    let clearTimer = null;
+    let clearHandler = null;
 
     function openModal(src, alt) {
+        if (clearTimer) {
+            clearTimeout(clearTimer);
+            clearTimer = null;
+        }
+        if (clearHandler) {
+            modal.removeEventListener('transitionend', clearHandler);
+            clearHandler = null;
+        }
         modalImage.src = src;
         modalImage.alt = alt || 'Booking highlight';
         lastFocusedElement = document.activeElement;
@@ -963,7 +973,31 @@ function initBookingModal() {
         modal.classList.remove('is-open');
         modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
-        modalImage.src = '';
+        if (clearHandler) {
+            modal.removeEventListener('transitionend', clearHandler);
+            clearHandler = null;
+        }
+        clearHandler = (event) => {
+            if (event.propertyName !== 'opacity') return;
+            modal.removeEventListener('transitionend', clearHandler);
+            clearHandler = null;
+            if (modal.getAttribute('aria-hidden') === 'true') {
+                modalImage.removeAttribute('src');
+                modalImage.alt = '';
+            }
+        };
+        modal.addEventListener('transitionend', clearHandler);
+        clearTimer = setTimeout(() => {
+            if (clearHandler) {
+                modal.removeEventListener('transitionend', clearHandler);
+                clearHandler = null;
+            }
+            if (modal.getAttribute('aria-hidden') === 'true') {
+                modalImage.removeAttribute('src');
+                modalImage.alt = '';
+            }
+            clearTimer = null;
+        }, 500);
         if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
             lastFocusedElement.focus();
         }

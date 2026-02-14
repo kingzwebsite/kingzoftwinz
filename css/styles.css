@@ -326,52 +326,31 @@ input, textarea, select {
     left: 0;
     right: 0;
     z-index: var(--z-fixed);
-    padding: 0;
+    padding: 8px 0;
     transition: all var(--transition-base);
     background: transparent;
     backdrop-filter: none;
 }
 
-.header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: var(--header-bg-height, 90px);
+.header.scrolled {
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(16px);
-    opacity: 0;
-    transition: opacity var(--transition-base);
-    pointer-events: none;
-    z-index: 0;
-}
-
-.header.scrolled {
-    background: transparent;
-    backdrop-filter: none;
-}
-
-.header.scrolled::before {
-    opacity: 1;
+    padding: 6px 0;
 }
 
 .nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
-    z-index: 1;
 }
 
 .nav__logo {
     position: relative;
     z-index: var(--z-modal);
-    transition: transform var(--transition-base);
 }
 
 .logo-img {
-    height: 160px;
+    height: 96px;
     width: auto;
     object-fit: contain;
     filter: brightness(0) invert(1);
@@ -388,14 +367,10 @@ input, textarea, select {
     filter: brightness(1.25) invert(1) drop-shadow(0 8px 18px rgba(201, 162, 39, 0.3));
 }
 
-.header.scrolled .nav__logo {
-    transform: scale(0.62);
+.header.scrolled .logo-img {
+    height: 72px;
 }
 
-.header.scrolled .nav__link {
-    font-size: 0.7rem;
-    letter-spacing: 1.2px;
-}
 
 .nav__menu {
     display: flex;
@@ -404,6 +379,7 @@ input, textarea, select {
 }
 
 .nav__link {
+    font-family: var(--font-body);
     font-size: var(--fs-small);
     font-weight: 500;
     text-transform: uppercase;
@@ -411,7 +387,7 @@ input, textarea, select {
     color: var(--color-white);
     position: relative;
     padding: 0;
-    line-height: 1;
+    line-height: 1.2;
 }
 
 .nav__link::after {
@@ -2442,7 +2418,6 @@ a.contact__value:hover {
         --container-padding: 1.5rem;
         --spacing-3xl: 5rem;
         --grid-gap: var(--spacing-lg);
-        --header-bg-height: 80px;
     }
 
     .about__grid {
@@ -2493,20 +2468,15 @@ a.contact__value:hover {
         --spacing-2xl: 3rem;
         --spacing-3xl: 4rem;
         --grid-gap: var(--spacing-md);
-        --header-bg-height: 72px;
     }
 
     /* Navigation */
     .header {
-        padding: var(--spacing-sm) 0;
+        padding: 6px 0;
     }
 
     .header.scrolled {
-        padding: var(--spacing-sm) 0;
-    }
-
-    .header.scrolled {
-        padding: var(--spacing-sm) 0;
+        padding: 4px 0;
     }
 
     .nav__logo {
@@ -2545,19 +2515,17 @@ a.contact__value:hover {
     }
 
     .nav__link {
-        font-family: var(--font-display);
+        font-family: var(--font-body);
         font-size: clamp(1.5rem, 6vw, 2rem);
         letter-spacing: 3px;
     }
 
     .logo-img {
-        height: 64px;
-        transform: scale(1.45);
-        transform-origin: left center;
+        height: 56px;
     }
 
-    .header.scrolled .nav__logo {
-        transform: scale(0.9);
+    .header.scrolled .logo-img {
+        height: 48px;
     }
 
     /* Hero */
@@ -2971,15 +2939,19 @@ a.contact__value:hover {
 
     /* Header */
     .logo-img {
-        height: 60px;
+        height: 48px;
     }
 
-    .header.scrolled .nav__logo {
-        transform: scale(0.9);
+    .header.scrolled .logo-img {
+        height: 40px;
     }
 
     .header {
-        padding: var(--spacing-sm) 0;
+        padding: 6px 0;
+    }
+
+    .header.scrolled {
+        padding: 4px 0;
     }
 
     /* Hero */
@@ -3122,6 +3094,21 @@ a.contact__value:hover {
     }
 
     /* News */
+    .news__header {
+        align-items: center;
+        text-align: center;
+    }
+
+    .news__header .section__header--block {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .news__nav {
+        align-self: center;
+    }
+
     .news-card {
         flex: 0 0 90%;
     }
