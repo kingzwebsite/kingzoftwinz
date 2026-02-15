@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Vegas Cafe | Reopening April 2026</title>
+    <style>
+        .brand__logo { height: 86px; width: auto; display: block; }
+        .hero__logo { height: 160px; width: auto; max-width: min(80vw, 420px); display: block; margin: 0 auto; }
+        .footer__logo { height: 52px; width: auto; display: block; }
+        .nav-logo { height: 44px; width: auto; display: block; }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=2">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header__inner">
+            <a href="#home" class="brand" aria-label="Las Vegas Cafe Home">
+                <img src="../images/cafe/logo.png" alt="Las Vegas Cafe" class="brand__logo" height="86" decoding="async">
+            </a>
+            <nav class="site-nav" aria-label="Cafe navigation">
+                <a href="#instagram">Instagram</a>
+                <a href="#support">Support</a>
+            </nav>
+            <a class="nav-logo-link" href="../index.html" aria-label="Kingz of Twinz">
+                <img src="../images/logo.png" alt="Kingz of Twinz" class="nav-logo" height="44" decoding="async">
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home" aria-label="Las Vegas Cafe hero">
+            <video class="hero__video" autoplay muted loop playsinline>
+                <source src="../images/cafe/vid.mp4" type="video/mp4">
+            </video>
+            <div class="hero__overlay"></div>
+            <div class="hero__content container">
+                <img src="../images/cafe/logo.png" alt="Las Vegas Cafe" class="hero__logo reveal" height="160" decoding="async">
+                <span class="hero__eyebrow reveal reveal-delay-1">Black River, Jamaica</span>
+                <h1 class="hero__title reveal reveal-delay-2">Reopening April 2026</h1>
+                <p class="hero__subtitle reveal reveal-delay-3">Restoring after Hurricane Melissa.</p>
+            </div>
+        </section>
+
+        <section class="section instagram" id="instagram">
+            <div class="container instagram__grid">
+                <div class="instagram__embed reveal">
+                    <div class="elfsight-app-0ba9adef-3a10-4fe9-b0c3-f67e4381cc50" data-elfsight-app-lazy></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section support" id="support">
+            <div class="container support__grid">
+                <div class="support__embed reveal">
+                    <div class="gfm-embed" data-url="https://www.gofundme.com/f/rebuild-hope-for-black-river-jamaica-after-hurricane-meliss/widget/large?sharesheet=undefined&attribution_id=sl:d2aad47c-a867-42ff-a38e-6b87070643fe"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer__inner">
+            <img src="../images/cafe/logo.png" alt="Las Vegas Cafe" class="footer__logo" height="52" decoding="async">
+            <p>Reopening April 2026 - Black River, Jamaica</p>
+        </div>
+    </footer>
+
+    <script src="https://elfsightcdn.com/platform.js" async></script>
+    <script defer src="https://www.gofundme.com/static/js/embed.js"></script>
+    <script>
+        const revealItems = document.querySelectorAll('.reveal');
+        const sectionItems = document.querySelectorAll('.section');
+
+        sectionItems.forEach((section) => {
+            if (section.id === 'home') {
+                section.classList.add('in-view');
+            }
+        });
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.18 }
+        );
+        revealItems.forEach((item) => observer.observe(item));
+
+        const sectionObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                        sectionObserver.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.2, rootMargin: '0px 0px -10% 0px' }
+        );
+        sectionItems.forEach((section) => sectionObserver.observe(section));
+    </script>
+</body>
+</html>
+
+

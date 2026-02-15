@@ -1650,11 +1650,27 @@ img[src*="spiceafrica"] {
     overflow: hidden;
 }
 
+.tours__news {
+    background: transparent;
+    margin-top: var(--spacing-3xl);
+    padding-top: var(--spacing-2xl);
+    border-top: 1px solid var(--color-gray-800);
+}
+
+.tours__news.news {
+    background: transparent;
+}
+
+.tours__news .news__header {
+    margin-bottom: var(--spacing-xl);
+}
+
 .news__header {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: var(--spacing-2xl);
+    background: var(--color-black);
 }
 
 .news__nav {
