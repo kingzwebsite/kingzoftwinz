@@ -1646,7 +1646,7 @@ img[src*="spiceafrica"] {
    News Section
 ======================================== */
 .news {
-    background: var(--color-gray-900);
+    background: var(--color-black);
     overflow: hidden;
 }
 
@@ -2278,7 +2278,12 @@ a.contact__value:hover {
 .section-stack .roster { background: var(--color-gray-900); }
 .section-stack .services { background: var(--color-black); }
 .section-stack .tours { background: var(--color-black); }
-.section-stack .news { background: var(--color-gray-900); }
+.section-stack .news { background: var(--color-black); }
+
+.news-card,
+.news-card__content {
+    background: transparent;
+}
 .section-stack .cta { background: var(--color-black); }
 .section-stack .contact { background: var(--color-black); }
 
