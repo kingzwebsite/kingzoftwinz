@@ -332,7 +332,7 @@ function initRosterFilter() {
             talentCards.forEach(card => {
                 const category = card.dataset.category || '';
                 const categories = category.split(/\s+/).filter(Boolean);
-                const showInAll = !categories.includes('gfx');
+                const showInAll = !categories.includes('gfx') && !categories.includes('bands');
                 if ((filter === 'all' && showInAll) || categories.includes(filter)) {
                     card.style.display = '';
                     setTimeout(() => {
@@ -355,11 +355,11 @@ function initRosterFilter() {
         card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
     });
 
-    // Hide gfx/web items by default when "All" is active
+    // Hide gfx/web and bands by default when "All" is active
     talentCards.forEach(card => {
         const category = card.dataset.category || '';
         const categories = category.split(/\s+/).filter(Boolean);
-        if (categories.includes('gfx')) {
+        if (categories.includes('gfx') || categories.includes('bands')) {
             card.style.display = 'none';
         }
     });
@@ -840,6 +840,30 @@ function initArtistModals() {
             genres: 'Dancehall, reggae fusion, grime, hip-hop influences.',
             description: 'British-Jamaican artist known for blending dancehall and UK grime. Broke internationally with "Soundbwoy" and collaborations like "Come Over" with Clean Bandit.',
             metrics: '"Soundbwoy" peaked at #18 on the UK Singles Chart with millions of streams across Spotify and YouTube.'
+        },
+        'towerband': {
+            name: 'Tower Band',
+            subtitle: 'Tower Band Jamaica',
+            dob: 'Origin: Jamaica.',
+            genres: 'Reggae, dancehall, live band performance.',
+            description: 'Tower Band is a Jamaican live band known for high-energy sets, strong stage musicianship, and versatile performance across reggae, dancehall, and party circuits.',
+            metrics: 'Performs as a full live band for concerts, festivals, private events, and branded entertainment experiences.'
+        },
+        'jeusi-mc': {
+            name: 'Jeusi MC',
+            subtitle: 'Jeusi MC',
+            dob: 'Origin: Jamaica.',
+            genres: 'Dancehall, hosting, live MC performance.',
+            description: 'Jeusi MC is a Jamaican artist and host known for crowd control, stage command, and energetic live delivery built for dancehall-focused events.',
+            metrics: 'Bookable for live performances, event hosting, and promotional appearances. Profile link available via Linktree.'
+        },
+        'kkrytical': {
+            name: 'Kkrytical',
+            subtitle: 'Kkrytical',
+            dob: 'Origin: Jamaica.',
+            genres: 'Dancehall.',
+            description: 'Kkrytical is an emerging Jamaican dancehall talent with a modern, direct sound and performance style aimed at new-generation audiences.',
+            metrics: 'Available for artist bookings, collaborations, and event performance opportunities.'
         },
         'pesi-graphics': {
             name: 'PESI Graphics',
