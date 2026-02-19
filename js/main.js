@@ -320,6 +320,27 @@ function initRosterFilter() {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const talentCards = document.querySelectorAll('.talent-card');
 
+    const applyFilter = (filter) => {
+        talentCards.forEach(card => {
+            const category = card.dataset.category || '';
+            const categories = category.split(/\s+/).filter(Boolean);
+
+            if (categories.includes(filter)) {
+                card.style.display = '';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 50);
+            } else {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.display = 'none';
+                }, 400);
+            }
+        });
+    };
+
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const filter = btn.dataset.filter;
@@ -328,25 +349,7 @@ function initRosterFilter() {
             filterBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            // Filter cards
-            talentCards.forEach(card => {
-                const category = card.dataset.category || '';
-                const categories = category.split(/\s+/).filter(Boolean);
-                const showInAll = !categories.includes('gfx') && !categories.includes('bands');
-                if ((filter === 'all' && showInAll) || categories.includes(filter)) {
-                    card.style.display = '';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 50);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 400);
-                }
-            });
+            applyFilter(filter);
         });
     });
 
@@ -355,14 +358,11 @@ function initRosterFilter() {
         card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
     });
 
-    // Hide gfx/web and bands by default when "All" is active
-    talentCards.forEach(card => {
-        const category = card.dataset.category || '';
-        const categories = category.split(/\s+/).filter(Boolean);
-        if (categories.includes('gfx') || categories.includes('bands')) {
-            card.style.display = 'none';
-        }
-    });
+    // Apply initial active filter on load
+    const activeBtn = document.querySelector('.filter-btn.active');
+    if (activeBtn?.dataset.filter) {
+        applyFilter(activeBtn.dataset.filter);
+    }
 }
 
 /* ========================================
@@ -851,11 +851,11 @@ function initArtistModals() {
         },
         'jeusi-mc': {
             name: 'Jeusi MC',
-            subtitle: 'Jeusi MC',
-            dob: 'Origin: Jamaica.',
-            genres: 'Dancehall, hosting, live MC performance.',
-            description: 'Jeusi MC is a Jamaican artist and host known for crowd control, stage command, and energetic live delivery built for dancehall-focused events.',
-            metrics: 'Bookable for live performances, event hosting, and promotional appearances. Profile link available via Linktree.'
+            subtitle: 'Shabani Hemedi Kambwili',
+            dob: 'Origin: Dar es Salaam, Tanzania.',
+            genres: 'Singeli.',
+            description: 'Leading Singeli performer known for rapid-fire delivery, explosive live energy, and pushing Tanzanian Singeli to wider audiences.',
+            metrics: 'Popular tracks include Ubanda, Hauna Kazi, Cyborg, and Miharamia.'
         },
         'kkrytical': {
             name: 'Kkrytical',
@@ -888,6 +888,14 @@ function initArtistModals() {
             genres: 'Media, events, promotions, creative direction, entertainment.',
             description: 'Jamaica-based creative media and event brand focused on high-energy experiences, visual storytelling, and promotional campaigns within entertainment and nightlife culture.',
             metrics: 'Affiliations: @ateammedia, @zerodegreezparty, @aftermathja. Business inquiries via @thebookofsamms. Brand philosophy: Today, not tomorrow.'
+        },
+        'team-dynamix': {
+            name: 'Team Dynamix',
+            subtitle: 'DJ Squeeze and DJ Shooty',
+            dob: 'Origin: Jamaica.',
+            genres: 'Dancehall, reggae, afrobeats, soca, hip-hop, club hits.',
+            description: 'High-energy Jamaican DJ duo known for seamless transitions, crowd control, and genre-blending sets built for clubs, stage shows, and major events.',
+            metrics: 'Event-ready for club nights, private events, brand activations, concerts, festivals, weddings, and corporate functions.'
         }
     };
 
