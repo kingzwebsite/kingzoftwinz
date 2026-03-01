@@ -15,8 +15,16 @@
     <!-- Vercel Web Analytics -->
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+        (function () {
+            var h = window.location.hostname;
+            var isLocal = h === 'localhost' || h === '127.0.0.1' || h === '';
+            if (isLocal) return;
+            var s = document.createElement('script');
+            s.defer = true;
+            s.src = '/_vercel/insights/script.js';
+            document.head.appendChild(s);
+        })();
     </script>
-    <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
     <!-- Skip to Content (Accessibility) -->
@@ -257,7 +265,7 @@
                 </article>
 
                 <!-- Beenie Man -->
-                <article class="talent-card" data-category="dancehall reggae" data-artist="beenie-man">
+                <article class="talent-card" data-category="dancehall" data-artist="beenie-man">
                     <div class="talent-card__image">
                         <img src="images/artists/beenie.png" alt="Beenie Man" loading="lazy">
                         <div class="talent-card__overlay">
@@ -275,7 +283,7 @@
                 </article>
 
                 <!-- Elephant Man -->
-                <article class="talent-card" data-category="dancehall reggae" data-artist="elephant-man">
+                <article class="talent-card" data-category="dancehall" data-artist="elephant-man">
                     <div class="talent-card__image">
                         <img src="images/artists/elephantman.png" alt="Elephant Man" loading="lazy">
                         <div class="talent-card__overlay">
@@ -488,14 +496,14 @@
                     </div>
                     <div class="talent-card__info">
                         <h3 class="talent-card__name">Jah Vinci</h3>
-                        <p class="talent-card__role">Dancehall Artist</p>
+                        <p class="talent-card__role">Reggae / Dancehall</p>
                     </div>
                 </article>
 
                 <!-- Vanessa Bling -->
                 <article class="talent-card" data-category="dancehall" data-artist="vanessa-bling">
                     <div class="talent-card__image">
-                        <img src="images/artists/bling.png" alt="Vanessa Bling" loading="lazy">
+                        <img src="images/artists/vbling.jpg" alt="Vanessa Bling" loading="lazy">
                         <div class="talent-card__overlay">
                             <div class="talent-card__socials">
                                 <a href="https://www.instagram.com/realvanessabling/" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg></a>
@@ -565,7 +573,7 @@
                 </article>
 
                 <!-- Stylo G -->
-                <article class="talent-card" data-category="dancehall reggae" data-artist="stylo-g">
+                <article class="talent-card" data-category="dancehall" data-artist="stylo-g">
                     <div class="talent-card__image">
                         <img src="images/artists/stylo.jpg" alt="Stylo G" loading="lazy">
                         <div class="talent-card__overlay">
@@ -582,8 +590,107 @@
                     </div>
                 </article>
 
+                <!-- T.O.K. -->
+                <article class="talent-card" data-category="dancehall reggae" data-artist="tok">
+                    <div class="talent-card__image">
+                        <img src="images/artists/tok.jpg" alt="T.O.K." loading="lazy">
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">T.O.K.</h3>
+                        <p class="talent-card__role">Dancehall / Reggae Fusion Group</p>
+                    </div>
+                </article>
+
+                <!-- Vershon -->
+                <article class="talent-card" data-category="dancehall" data-artist="vershon">
+                    <div class="talent-card__image">
+                        <img src="images/artists/Vershon.jpg" alt="Vershon" loading="lazy">
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Vershon</h3>
+                        <p class="talent-card__role">Dancehall Artist</p>
+                    </div>
+                </article>
+
+                <!-- Teebone -->
+                <article class="talent-card" data-category="dancehall" data-artist="teebone">
+                    <div class="talent-card__image">
+                        <img src="images/artists/teebone.jpg" alt="Teebone" loading="lazy">
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Teebone</h3>
+                        <p class="talent-card__role">Dancehall Artist</p>
+                    </div>
+                </article>
+
+                <!-- Bunji Garlin -->
+                <article class="talent-card" data-category="soca" data-artist="bunji-garlin">
+                    <div class="talent-card__image">
+                        <img src="images/artists/bunji.jpg" alt="Bunji Garlin" loading="lazy">
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Bunji Garlin</h3>
+                        <p class="talent-card__role">Soca Artist</p>
+                    </div>
+                </article>
+
+                <!-- Patrice Roberts -->
+                <article class="talent-card" data-category="soca" data-artist="patrice-roberts">
+                    <div class="talent-card__image">
+                        <img src="images/artists/Patrice-Roberts.jpg" alt="Patrice Roberts" loading="lazy">
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Patrice Roberts</h3>
+                        <p class="talent-card__role">Soca Artist</p>
+                    </div>
+                </article>
+
+                <!-- Sizzla -->
+                <article class="talent-card" data-category="reggae dancehall" data-artist="sizzla">
+                    <div class="talent-card__image">
+                        <img src="images/artists/sizzla.avif" alt="Sizzla" loading="lazy">
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Sizzla</h3>
+                        <p class="talent-card__role">Reggae / Roots Artist</p>
+                    </div>
+                </article>
+
+                <!-- Fantan Mojah -->
+                <article class="talent-card" data-category="reggae" data-artist="fantan-mojah">
+                    <div class="talent-card__image">
+                        <img src="images/artists/fantan-mojah.webp" alt="Fantan Mojah" loading="lazy">
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Fantan Mojah</h3>
+                        <p class="talent-card__role">Roots Reggae Artist</p>
+                    </div>
+                </article>
+
+                <!-- Jesse Royal -->
+                <article class="talent-card" data-category="reggae" data-artist="jesse-royal">
+                    <div class="talent-card__image">
+                        <div class="image-placeholder"><span>Jesse Royal</span></div>
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Jesse Royal</h3>
+                        <p class="talent-card__role">Reggae Artist</p>
+                    </div>
+                </article>
+
+                <!-- Keznamdi -->
+                <article class="talent-card" data-category="reggae" data-artist="keznamdi">
+                    <div class="talent-card__image">
+                        <div class="image-placeholder"><span>Keznamdi</span></div>
+                    </div>
+                    <div class="talent-card__info">
+                        <h3 class="talent-card__name">Keznamdi</h3>
+                        <p class="talent-card__role">Reggae Artist</p>
+                    </div>
+                </article>
+
                 <!-- Tower Band -->
-                <article class="talent-card" data-category="bands reggae dancehall" data-artist="towerband">
+                <article class="talent-card" data-category="bands" data-artist="towerband">
                     <div class="talent-card__image">
                         <img src="images/artists/towerband.jpg" alt="Tower Band" loading="lazy">
                         <div class="talent-card__overlay">
@@ -670,7 +777,7 @@
             </div>
 
             <div class="roster__cta">
-                <a href="#" class="btn btn--outline">View Full Roster</a>
+                <a href="roster.html" class="btn btn--outline">View Full Roster</a>
             </div>
         </div>
     </section>
@@ -1044,6 +1151,22 @@
                 <div class="artist-modal__media">
                     <img src="" alt="" class="artist-modal__image" id="artistModalImage">
                 </div>
+                <div class="artist-modal__video-wrap" id="artistModalVideoWrap" hidden>
+                    <iframe
+                        id="artistModalVideo"
+                        class="artist-modal__video"
+                        src=""
+                        title="Artist video"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <p class="artist-modal__video-fallback" id="artistModalVideoFallback" hidden>
+                        Video unavailable in embed.
+                        <a id="artistModalVideoLink" href="#" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+                    </p>
+                </div>
                 <div class="artist-modal__body">
                     <p class="artist-modal__eyebrow" id="artistModalGenre"></p>
                     <h3 class="artist-modal__title" id="artistModalTitle"></h3>
@@ -1145,8 +1268,16 @@
     <!-- Vercel Speed Insights -->
     <script>
         window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+        (function () {
+            var h = window.location.hostname;
+            var isLocal = h === 'localhost' || h === '127.0.0.1' || h === '';
+            if (isLocal) return;
+            var s = document.createElement('script');
+            s.defer = true;
+            s.src = '/_vercel/speed-insights/script.js';
+            document.body.appendChild(s);
+        })();
     </script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>
 

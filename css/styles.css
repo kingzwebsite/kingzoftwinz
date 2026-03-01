@@ -1325,6 +1325,42 @@ img[src*="spiceafrica"] {
     max-width: 520px;
 }
 
+.artist-modal__content.has-video .artist-modal__body {
+    max-width: calc(100% - 290px);
+}
+
+.artist-modal__video-wrap {
+    position: absolute;
+    top: 64px;
+    right: 26px;
+    width: min(250px, 36vw);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 2;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.45);
+}
+
+.artist-modal__video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    display: block;
+}
+
+.artist-modal__video-fallback {
+    margin: 8px 10px 10px;
+    font-size: 0.76rem;
+    color: var(--color-gray-300);
+    line-height: 1.4;
+}
+
+.artist-modal__video-fallback a {
+    color: var(--color-white);
+    text-decoration: underline;
+}
+
 .artist-modal__eyebrow {
     font-size: var(--fs-xs);
     letter-spacing: 3px;
@@ -2573,6 +2609,20 @@ a.contact__value:hover {
 
     .hero__logo-img {
         max-width: 400px;
+    }
+}
+
+@media (max-width: 900px) {
+    .artist-modal__content.has-video .artist-modal__body {
+        max-width: 100%;
+    }
+
+    .artist-modal__video-wrap {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        margin: 12px 0 16px;
     }
 }
 

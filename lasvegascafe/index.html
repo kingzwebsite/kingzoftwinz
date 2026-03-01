@@ -112,8 +112,16 @@
     <!-- Vercel Speed Insights -->
     <script>
         window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+        (function () {
+            var h = window.location.hostname;
+            var isLocal = h === 'localhost' || h === '127.0.0.1' || h === '';
+            if (isLocal) return;
+            var s = document.createElement('script');
+            s.defer = true;
+            s.src = '/_vercel/speed-insights/script.js';
+            document.body.appendChild(s);
+        })();
     </script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>
 

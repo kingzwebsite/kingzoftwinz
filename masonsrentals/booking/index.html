@@ -12,8 +12,16 @@
     <!-- Vercel Web Analytics -->
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+        (function () {
+            var h = window.location.hostname;
+            var isLocal = h === 'localhost' || h === '127.0.0.1' || h === '';
+            if (isLocal) return;
+            var s = document.createElement('script');
+            s.defer = true;
+            s.src = '/_vercel/insights/script.js';
+            document.head.appendChild(s);
+        })();
     </script>
-    <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body class="rental-body booking-page">
     <header class="rental-header">
@@ -343,8 +351,16 @@
     <!-- Vercel Speed Insights -->
     <script>
         window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+        (function () {
+            var h = window.location.hostname;
+            var isLocal = h === 'localhost' || h === '127.0.0.1' || h === '';
+            if (isLocal) return;
+            var s = document.createElement('script');
+            s.defer = true;
+            s.src = '/_vercel/speed-insights/script.js';
+            document.body.appendChild(s);
+        })();
     </script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>
 

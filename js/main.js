@@ -695,7 +695,12 @@ function initArtistModals() {
     const modal = document.getElementById('artistModal');
     if (!modal) return;
 
+    const modalContent = modal.querySelector('.artist-modal__content');
     const modalImage = document.getElementById('artistModalImage');
+    const modalVideoWrap = document.getElementById('artistModalVideoWrap');
+    const modalVideo = document.getElementById('artistModalVideo');
+    const modalVideoFallback = document.getElementById('artistModalVideoFallback');
+    const modalVideoLink = document.getElementById('artistModalVideoLink');
     const modalTitle = document.getElementById('artistModalTitle');
     const modalSubtitle = document.getElementById('artistModalSubtitle');
     const modalGenre = document.getElementById('artistModalGenre');
@@ -703,6 +708,53 @@ function initArtistModals() {
     const closeButtons = modal.querySelectorAll('[data-modal-close]');
     const dialog = modal.querySelector('.artist-modal__dialog');
     let lastFocusedElement = null;
+
+    const artistVideos = {
+        'spice': 'https://youtu.be/MK9-cP8Cm8U?si=pDIXIMKzUBUYbpMB',
+        'beenie-man': 'https://youtu.be/hysgYjFS_ow?si=CaTvyggBwu5JN8aT',
+        'elephant-man': 'https://youtu.be/n4BYfro_LxI?si=9Pkxhc2Zn3yLMJRi',
+        'konshens': 'https://youtu.be/7JqVOO99wl4?si=wE7KoHoftE7ZnfHo',
+        'christopher-martin': 'https://youtu.be/lYXWAjmcK9I?si=LbFQydNxPkux75LV',
+        'gyptian': 'https://www.youtube.com/live/GsNIemSlGMI?si=4m_Rz4z5-t6mcPzz',
+        'tony-matterhorn': 'https://youtu.be/8ZjGhBC0uJ8?si=tWRjD1tpUjdAWcdi',
+        'jahmiel': 'https://youtu.be/SlS2lUthSIk?si=bFxl1V-hbInpX89r',
+        'jahvillani': 'https://youtu.be/eHXyJaoIWv4?si=Hw_K7NzFFcEvsycA',
+        'pablo-yg': 'https://youtu.be/oc-0UzKMVDc?si=tmngfh-hHJ7tqNFe',
+        'shane-o': 'https://youtu.be/WFZmVylemPs?si=k-lV_YCx0v43yeu6',
+        'jah-vinci': 'https://youtu.be/qMpMxS0XSR4?si=SXp8pu99eQ8q4yQ5',
+        'vanessa-bling': 'https://youtu.be/gkWlsfEZ24Q?si=VdulYaLGTTD1OL6O',
+        'aidonia': 'https://youtu.be/xUO1VeqQd48?si=0KWEGo9FapAPWHyN',
+        'govana': 'https://youtu.be/lUJCmX_X7NQ?si=yqj7b5j_iXFRrA6P',
+        'dyani': 'https://youtu.be/hPfgHdfDZYk?si=0dCxVcykyVmNcvJB',
+        'stylo-g': 'https://youtu.be/2Y-yqhfT118?si=TBlPzxhnmP-jnzqm'
+    };
+
+    function getYouTubeEmbedUrl(rawUrl) {
+        if (!rawUrl) return '';
+
+        try {
+            const parsed = new URL(rawUrl);
+            let videoId = '';
+
+            if (parsed.hostname.includes('youtu.be')) {
+                videoId = parsed.pathname.replace('/', '');
+            } else if (parsed.pathname.startsWith('/live/')) {
+                videoId = parsed.pathname.split('/')[2] || '';
+            } else {
+                videoId = parsed.searchParams.get('v') || '';
+            }
+
+            return videoId ? `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1` : '';
+        } catch {
+            return '';
+        }
+    }
+
+    if (modalVideo) {
+        modalVideo.addEventListener('error', () => {
+            if (modalVideoFallback) modalVideoFallback.hidden = false;
+        });
+    }
 
     const artistData = {
         'spice': {
@@ -841,6 +893,78 @@ function initArtistModals() {
             description: 'British-Jamaican artist known for blending dancehall and UK grime. Broke internationally with "Soundbwoy" and collaborations like "Come Over" with Clean Bandit.',
             metrics: '"Soundbwoy" peaked at #18 on the UK Singles Chart with millions of streams across Spotify and YouTube.'
         },
+        'tok': {
+            name: 'T.O.K.',
+            subtitle: 'Craigy T, Flexx, Alex, and Bay-C',
+            dob: 'Origin: Kingston, Jamaica.',
+            genres: 'Dancehall, reggae, reggae fusion.',
+            description: 'Legendary Jamaican vocal group known for global dancehall hits, strong harmonies, and energetic performances.',
+            metrics: 'Known for "Chi Chi Man," "Footprints," and "Galang Gal" with extensive international touring.'
+        },
+        'vershon': {
+            name: 'Vershon',
+            subtitle: 'Kemar Vershawn Brown',
+            dob: 'Origin: Kingston, Jamaica.',
+            genres: 'Dancehall.',
+            description: 'Melodic dancehall artist known for relatable storytelling, emotional delivery, and balancing street and romantic themes.',
+            metrics: 'Notable songs include "Inna Real Life," "Linky," and "One More Day."'
+        },
+        'teebone': {
+            name: 'Teebone',
+            subtitle: 'Teebone',
+            dob: 'Origin: Jamaica.',
+            genres: 'Dancehall.',
+            description: 'Emerging dancehall act known for high-energy delivery, street-inspired lyrics, and modern youth-focused sound.',
+            metrics: 'Growing presence across live performances and digital platforms.'
+        },
+        'bunji-garlin': {
+            name: 'Bunji Garlin',
+            subtitle: 'Ian Antonio Alvarez',
+            dob: 'Origin: Trinidad and Tobago.',
+            genres: 'Soca, ragga soca.',
+            description: 'Influential soca artist known as the Viking of Soca, recognized for strong lyricism, stage dominance, and Caribbean fusion.',
+            metrics: 'Internationally known for "Differentology" and multiple Soca Monarch titles.'
+        },
+        'patrice-roberts': {
+            name: 'Patrice Roberts',
+            subtitle: 'Patrice Roberts',
+            dob: 'Origin: Trinidad and Tobago.',
+            genres: 'Soca.',
+            description: 'Leading female soca performer known for vibrant carnival records, energetic stage shows, and international touring.',
+            metrics: 'Built a strong solo career after early prominence performing alongside Machel Montano.'
+        },
+        'sizzla': {
+            name: 'Sizzla',
+            subtitle: 'Miguel Orlando Collins',
+            dob: 'Origin: St. Mary, Jamaica.',
+            genres: 'Reggae, roots reggae, dancehall.',
+            description: 'Prolific reggae icon known for conscious lyrics, Rastafarian themes, and a decades-spanning catalog.',
+            metrics: 'Known for "Solid As A Rock" and "Thank You Mama" with over 70 album releases.'
+        },
+        'fantan-mojah': {
+            name: 'Fantan Mojah',
+            subtitle: 'Owen Moncrieffe',
+            dob: 'Origin: St. Elizabeth, Jamaica.',
+            genres: 'Roots reggae.',
+            description: 'Respected roots reggae artist known for uplifting messages, cultural awareness, and spiritual themes.',
+            metrics: 'Recognized internationally for anthem "Hail The King."'
+        },
+        'jesse-royal': {
+            name: 'Jesse Royal',
+            subtitle: 'Jesse David Royal',
+            dob: 'Origin: Kingston, Jamaica.',
+            genres: 'Reggae, roots reggae.',
+            description: 'Modern reggae voice known for conscious lyrics, cultural themes, and strong live performances.',
+            metrics: 'Recognized globally through roots-reggae touring and internationally streamed releases.'
+        },
+        'keznamdi': {
+            name: 'Keznamdi',
+            subtitle: 'Keznamdi McGregor',
+            dob: 'Origin: Kingston, Jamaica.',
+            genres: 'Reggae.',
+            description: 'Reggae artist known for uplifting songwriting, modern production, and a message-driven sound.',
+            metrics: 'International reggae performer with growing catalog and consistent global audience reach.'
+        },
         'towerband': {
             name: 'Tower Band',
             subtitle: 'Tower Band Jamaica',
@@ -925,6 +1049,22 @@ function initArtistModals() {
         modalGenre.textContent = data.genres;
         buildDetailList(data);
 
+        const sourceUrl = artistVideos[key];
+        const embedUrl = getYouTubeEmbedUrl(sourceUrl);
+        if (embedUrl && modalVideo && modalVideoWrap) {
+            modalVideo.src = embedUrl;
+            modalVideoWrap.hidden = false;
+            modalContent?.classList.add('has-video');
+            if (modalVideoFallback) modalVideoFallback.hidden = true;
+            if (modalVideoLink) modalVideoLink.href = sourceUrl;
+        } else if (modalVideo && modalVideoWrap) {
+            modalVideo.src = '';
+            modalVideoWrap.hidden = true;
+            modalContent?.classList.remove('has-video');
+            if (modalVideoFallback) modalVideoFallback.hidden = true;
+            if (modalVideoLink) modalVideoLink.href = '#';
+        }
+
         lastFocusedElement = document.activeElement;
         modal.classList.add('is-open');
         modal.setAttribute('aria-hidden', 'false');
@@ -936,6 +1076,13 @@ function initArtistModals() {
         modal.classList.remove('is-open');
         modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
+        if (modalVideo && modalVideoWrap) {
+            modalVideo.src = '';
+            modalVideoWrap.hidden = true;
+            modalContent?.classList.remove('has-video');
+            if (modalVideoFallback) modalVideoFallback.hidden = true;
+            if (modalVideoLink) modalVideoLink.href = '#';
+        }
         if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
             lastFocusedElement.focus();
         }
