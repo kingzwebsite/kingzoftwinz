@@ -15,9 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeroAnimation();
     initAboutImageToggle();
     initArtistModals();
+    initFullRosterModal();
     initTalentPeek();
     initBookingModal();
 });
+
+const MODAL_FLOW_DELAY = 220;
+let fullRosterReturnState = null;
 
 /* ========================================
    Navigation
@@ -705,9 +709,11 @@ function initArtistModals() {
     const modalSubtitle = document.getElementById('artistModalSubtitle');
     const modalGenre = document.getElementById('artistModalGenre');
     const modalDetails = document.getElementById('artistModalDetails');
+    const modalBackButton = document.getElementById('artistModalBack');
     const closeButtons = modal.querySelectorAll('[data-modal-close]');
     const dialog = modal.querySelector('.artist-modal__dialog');
     let lastFocusedElement = null;
+    let openContext = 'grid';
 
     const artistVideos = {
         'spice': 'https://youtu.be/MK9-cP8Cm8U?si=pDIXIMKzUBUYbpMB',
@@ -1036,10 +1042,11 @@ function initArtistModals() {
         )).join('');
     }
 
-    function openModal(card) {
-        const key = card.dataset.artist;
+    function openModal(card, options = {}) {
+        const key = card?.dataset.artist;
         const data = artistData[key];
         if (!data) return;
+        openContext = options.context || 'grid';
 
         const img = card.querySelector('img');
         modalImage.src = img?.getAttribute('src') || '';
@@ -1065,6 +1072,10 @@ function initArtistModals() {
             if (modalVideoLink) modalVideoLink.href = '#';
         }
 
+        if (modalBackButton) {
+            modalBackButton.hidden = openContext !== 'full-roster';
+        }
+
         lastFocusedElement = document.activeElement;
         modal.classList.add('is-open');
         modal.setAttribute('aria-hidden', 'false');
@@ -1072,7 +1083,13 @@ function initArtistModals() {
         dialog?.focus();
     }
 
-    function closeModal() {
+    function openModalByKey(artistKey, options = {}) {
+        const card = document.querySelector(`.talent-card[data-artist="${artistKey}"]`);
+        if (!card) return;
+        openModal(card, options);
+    }
+
+    function closeModal(options = {}) {
         modal.classList.remove('is-open');
         modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
@@ -1083,7 +1100,10 @@ function initArtistModals() {
             if (modalVideoFallback) modalVideoFallback.hidden = true;
             if (modalVideoLink) modalVideoLink.href = '#';
         }
-        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+        if (modalBackButton) {
+            modalBackButton.hidden = true;
+        }
+        if (options.restoreFocus !== false && lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
             lastFocusedElement.focus();
         }
     }
@@ -1097,6 +1117,24 @@ function initArtistModals() {
 
     closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
 
+    modalBackButton?.addEventListener('click', () => {
+        if (openContext !== 'full-roster') return;
+        closeModal({ restoreFocus: false });
+        setTimeout(() => {
+            window.dispatchEvent(new CustomEvent('reopen-full-roster', {
+                detail: { state: fullRosterReturnState }
+            }));
+        }, MODAL_FLOW_DELAY);
+    });
+
+    window.addEventListener('open-artist-modal', (event) => {
+        const artistKey = event?.detail?.artistKey;
+        const context = event?.detail?.context || 'grid';
+        fullRosterReturnState = event?.detail?.rosterState || null;
+        if (!artistKey) return;
+        openModalByKey(artistKey, { context });
+    });
+
     window.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && modal.classList.contains('is-open')) {
             closeModal();
@@ -1105,6 +1143,247 @@ function initArtistModals() {
 
     modal.addEventListener('keydown', (event) => {
         if (modal.classList.contains('is-open')) {
+            trapFocus(modal, event);
+        }
+    });
+}
+
+/* ========================================
+   Full Roster Modal
+======================================== */
+function initFullRosterModal() {
+    const trigger = document.getElementById('fullRosterTrigger');
+    const modal = document.getElementById('fullRosterModal');
+    if (!trigger || !modal) return;
+
+    const listWrap = document.getElementById('fullRosterListWrap');
+    const list = document.getElementById('fullRosterList');
+    const hints = document.getElementById('fullRosterHints');
+    const alphaRail = document.getElementById('fullRosterAlpha');
+    const dialog = modal.querySelector('.full-roster-modal__dialog');
+    const closeButtons = modal.querySelectorAll('[data-full-roster-close]');
+    let lastFocusedElement = null;
+    let rosterItems = [];
+    let lockedScrollY = 0;
+    let lastActiveIndex = -1;
+    let rafId = 0;
+    let letterTargetTimer = 0;
+
+    function lockPageScroll() {
+        lockedScrollY = window.scrollY || window.pageYOffset || 0;
+        document.body.style.top = `-${lockedScrollY}px`;
+        document.body.classList.add('body--modal-locked');
+    }
+
+    function unlockPageScroll() {
+        document.body.classList.remove('body--modal-locked');
+        document.body.style.top = '';
+        window.scrollTo(0, lockedScrollY);
+    }
+
+    function getAlpha(name) {
+        const first = (name || '').trim().charAt(0).toUpperCase();
+        return /^[A-Z]$/.test(first) ? first : '#';
+    }
+
+    function buildRosterList() {
+        const cards = Array.from(document.querySelectorAll('.talent-card[data-artist]'));
+        const byArtistKey = new Map();
+
+        cards.forEach(card => {
+            const key = card.dataset.artist || '';
+            const name = card.querySelector('.talent-card__name')?.textContent?.trim() || '';
+            const image = card.querySelector('.talent-card__image img')?.getAttribute('src') || '';
+            const role = card.querySelector('.talent-card__role')?.textContent?.trim() || '';
+            if (!key || !name || byArtistKey.has(key)) return;
+            byArtistKey.set(key, { key, name, image, role });
+        });
+
+        const artists = Array.from(byArtistKey.values()).sort((a, b) =>
+            a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
+        );
+
+        list.innerHTML = artists.map((artist, index) => `
+            <li class="full-roster-modal__item" data-index="${index}" data-letter="${getAlpha(artist.name)}" data-artist-key="${artist.key}">
+                <button type="button" class="full-roster-modal__item-btn" data-open-artist="${artist.key}">
+                    <span class="full-roster-modal__item-index">${String(index + 1).padStart(2, '0')}</span>
+                    <span class="full-roster-modal__item-thumb-wrap">
+                        <img src="${artist.image}" alt="${artist.name}" class="full-roster-modal__item-thumb" loading="lazy">
+                    </span>
+                    <span class="full-roster-modal__item-text">
+                        <span class="full-roster-modal__item-name">${artist.name}</span>
+                        <span class="full-roster-modal__item-role">${artist.role}</span>
+                    </span>
+                </button>
+            </li>
+        `).join('');
+
+        const letters = [...new Set(artists.map(artist => getAlpha(artist.name)))];
+        alphaRail.innerHTML = letters.map(letter => `
+            <span class="full-roster-modal__alpha-letter" data-letter="${letter}">${letter}</span>
+        `).join('');
+
+        rosterItems = Array.from(list.querySelectorAll('.full-roster-modal__item'));
+    }
+
+    function getActiveIndex() {
+        if (!listWrap || !rosterItems.length) return 0;
+        const scrollTop = listWrap.scrollTop;
+        let activeIndex = 0;
+
+        for (let i = 0; i < rosterItems.length; i += 1) {
+            if (rosterItems[i].offsetTop - 16 <= scrollTop) {
+                activeIndex = i;
+            } else {
+                break;
+            }
+        }
+
+        return activeIndex;
+    }
+
+    function updateScrollHints() {
+        if (!rosterItems.length || !hints || !alphaRail) return;
+        const activeIndex = getActiveIndex();
+        if (activeIndex === lastActiveIndex) return;
+        lastActiveIndex = activeIndex;
+        const preview = rosterItems.slice(activeIndex, activeIndex + 4);
+        const activeLetter = rosterItems[activeIndex]?.dataset.letter || '';
+
+        rosterItems.forEach((item, index) => {
+            item.classList.toggle('is-active', index === activeIndex);
+        });
+
+        alphaRail.querySelectorAll('.full-roster-modal__alpha-letter').forEach(letter => {
+            letter.classList.toggle('is-active', letter.dataset.letter === activeLetter);
+        });
+
+        const categoryHint = activeLetter ? `<span class="full-roster-modal__hint is-active">Category: ${activeLetter}</span>` : '';
+        hints.innerHTML = categoryHint + preview.map((item, index) => {
+            const name = item.querySelector('.full-roster-modal__item-name')?.textContent || '';
+            const key = item.dataset.artistKey || '';
+            const label = index === 0 ? 'Now' : 'Up next';
+            const activeClass = index === 0 ? ' is-active' : '';
+            return `<button type="button" class="full-roster-modal__hint${activeClass}" data-open-artist="${key}">${label}: ${name}</button>`;
+        }).join('');
+    }
+
+    function getRosterState() {
+        return {
+            scrollTop: listWrap ? listWrap.scrollTop : 0
+        };
+    }
+
+    function jumpToLetter(letter) {
+        if (!listWrap || !rosterItems.length) return;
+        const target = rosterItems.find(item => item.dataset.letter === letter);
+        if (!target) return;
+
+        listWrap.scrollTo({
+            top: Math.max(target.offsetTop - 8, 0),
+            behavior: 'smooth'
+        });
+
+        rosterItems.forEach(item => item.classList.remove('is-letter-target'));
+        target.classList.add('is-letter-target');
+        if (letterTargetTimer) clearTimeout(letterTargetTimer);
+        letterTargetTimer = window.setTimeout(() => {
+            target.classList.remove('is-letter-target');
+        }, 600);
+    }
+
+    function openModal(event) {
+        event?.preventDefault();
+        buildRosterList();
+        lastFocusedElement = document.activeElement;
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        lockPageScroll();
+        if (listWrap) {
+            listWrap.scrollTop = fullRosterReturnState?.scrollTop || 0;
+        }
+        lastActiveIndex = -1;
+        updateScrollHints();
+        dialog?.focus();
+    }
+
+    function closeModal(options = {}) {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        unlockPageScroll();
+        if (rafId) {
+            cancelAnimationFrame(rafId);
+            rafId = 0;
+        }
+        if (options.restoreFocus !== false && lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+            lastFocusedElement.focus();
+        }
+    }
+
+    trigger.addEventListener('click', openModal);
+    closeButtons.forEach(button => button.addEventListener('click', closeModal));
+
+    list.addEventListener('click', (event) => {
+        const button = event.target.closest('[data-open-artist]');
+        if (!button) return;
+        const artistKey = button.getAttribute('data-open-artist');
+        if (!artistKey) return;
+        fullRosterReturnState = getRosterState();
+        closeModal({ restoreFocus: false });
+        setTimeout(() => {
+            window.dispatchEvent(new CustomEvent('open-artist-modal', {
+                detail: {
+                    artistKey,
+                    context: 'full-roster',
+                    rosterState: fullRosterReturnState
+                }
+            }));
+        }, MODAL_FLOW_DELAY);
+    });
+
+    hints.addEventListener('click', (event) => {
+        const button = event.target.closest('[data-open-artist]');
+        if (!button) return;
+        const artistKey = button.getAttribute('data-open-artist');
+        if (!artistKey) return;
+        fullRosterReturnState = getRosterState();
+        closeModal({ restoreFocus: false });
+        setTimeout(() => {
+            window.dispatchEvent(new CustomEvent('open-artist-modal', {
+                detail: {
+                    artistKey,
+                    context: 'full-roster',
+                    rosterState: fullRosterReturnState
+                }
+            }));
+        }, MODAL_FLOW_DELAY);
+    });
+    listWrap?.addEventListener('scroll', () => {
+        if (rafId) return;
+        rafId = requestAnimationFrame(() => {
+            rafId = 0;
+            updateScrollHints();
+        });
+    }, { passive: true });
+
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+            closeModal();
+        }
+    });
+
+    window.addEventListener('reopen-full-roster', (event) => {
+        fullRosterReturnState = event?.detail?.state || fullRosterReturnState;
+        openModal();
+    });
+
+    modal.addEventListener('keydown', (event) => {
+        if (modal.classList.contains('is-open')) {
+            const key = event.key || '';
+            if (!event.ctrlKey && !event.metaKey && !event.altKey && key.length === 1 && /^[a-z]$/i.test(key)) {
+                event.preventDefault();
+                jumpToLetter(key.toUpperCase());
+            }
             trapFocus(modal, event);
         }
     });

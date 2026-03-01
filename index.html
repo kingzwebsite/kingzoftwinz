@@ -777,7 +777,7 @@
             </div>
 
             <div class="roster__cta">
-                <a href="roster.html" class="btn btn--outline">View Full Roster</a>
+                <button type="button" class="btn btn--outline" id="fullRosterTrigger">View Full Roster</button>
             </div>
         </div>
     </section>
@@ -1172,7 +1172,28 @@
                     <h3 class="artist-modal__title" id="artistModalTitle"></h3>
                     <p class="artist-modal__subtitle" id="artistModalSubtitle"></p>
                     <ul class="artist-modal__details" id="artistModalDetails"></ul>
-                    <a href="#contact" class="btn btn--primary" data-modal-close>Book with Kingz of Twinz</a>
+                    <div class="artist-modal__actions">
+                        <button type="button" class="btn btn--outline artist-modal__back" id="artistModalBack" hidden>Back to Roster</button>
+                        <a href="#contact" class="btn btn--primary" data-modal-close>Book with Kingz of Twinz</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full Roster Modal -->
+    <div class="full-roster-modal" id="fullRosterModal" aria-hidden="true">
+        <div class="full-roster-modal__overlay" data-full-roster-close></div>
+        <div class="full-roster-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="fullRosterModalTitle" tabindex="-1">
+            <button class="full-roster-modal__close" type="button" aria-label="Close" data-full-roster-close>&times;</button>
+            <div class="full-roster-modal__content">
+                <p class="full-roster-modal__eyebrow">Full Roster</p>
+                <h3 class="full-roster-modal__title" id="fullRosterModalTitle">All Artists A-Z</h3>
+                <p class="full-roster-modal__subtitle">Scroll to browse the full list. Highlight chips show where you are and who is coming next.</p>
+                <div class="full-roster-modal__hints" id="fullRosterHints" aria-live="polite"></div>
+                <div class="full-roster-modal__list-wrap" id="fullRosterListWrap">
+                    <ul class="full-roster-modal__list" id="fullRosterList"></ul>
+                    <div class="full-roster-modal__alpha" id="fullRosterAlpha" aria-hidden="true"></div>
                 </div>
             </div>
         </div>
