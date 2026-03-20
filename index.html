@@ -849,9 +849,9 @@
     <div class="section-stack-inner">
     <section class="section tours" id="tours">
         <div class="container">
-            <div class="section__header section__header--block">
-                <span class="section__tag">Upcoming</span>
-                <h2 class="section__title section__title--block">Africa Tours 2026</h2>
+            <div class="section__header section__header--block" id="toursSectionHeader">
+                <span class="section__tag" id="toursSectionTag">Upcoming</span>
+                <h2 class="section__title section__title--block" id="toursSectionTitle">Africa Tours 2026</h2>
             </div>
 
             <div class="tours__grid">
@@ -954,7 +954,7 @@
                 <span class="section__tag">Bookings</span>
                 <h2 class="section__title section__title--block">Live Moments</h2>
             </div>
-            <div class="bookings__grid">
+            <div class="bookings__grid" id="liveMomentsGrid">
                 <div class="bookings__item"><img src="images/ig/266734019_619449049264971_5375437952144027697_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/266734019_619449049264971_5375437952144027697_n.jpg 400w, images/ig/266734019_619449049264971_5375437952144027697_n.jpg 800w, images/ig/266734019_619449049264971_5375437952144027697_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
                 <div class="bookings__item"><img src="images/ig/36877349_281821792395627_7201405221782683648_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/36877349_281821792395627_7201405221782683648_n.jpg 400w, images/ig/36877349_281821792395627_7201405221782683648_n.jpg 800w, images/ig/36877349_281821792395627_7201405221782683648_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
                 <div class="bookings__item"><img src="images/ig/45658159_2017001805022724_4166990695154027634_n.jpg" alt="Booking highlight" loading="lazy" data-booking srcset="images/ig/45658159_2017001805022724_4166990695154027634_n.jpg 400w, images/ig/45658159_2017001805022724_4166990695154027634_n.jpg 800w, images/ig/45658159_2017001805022724_4166990695154027634_n.jpg 1200w" sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, 20vw"></div>
@@ -1280,11 +1280,577 @@
                 <div class="footer__legal">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
+                    <a href="#" id="openAdminPanel" class="footer__admin-link" aria-label="Open staff admin panel">Staff</a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Admin Panel Modal -->
+    <div class="admin-panel" id="adminPanel" aria-hidden="true">
+        <div class="admin-panel__overlay" data-admin-close></div>
+        <div class="admin-panel__dialog" role="dialog" aria-modal="true" aria-labelledby="adminPanelTitle" tabindex="-1">
+            <button class="admin-panel__close" type="button" aria-label="Close admin panel" data-admin-close>&times;</button>
+            <div class="admin-panel__content">
+                <div class="admin-panel__login" id="adminLoginView">
+                    <p class="admin-panel__eyebrow">Staff Access</p>
+                    <h3 class="admin-panel__title" id="adminPanelTitle">Admin Login</h3>
+                    <p class="admin-panel__subtitle">Authorized users only.</p>
+                    <form class="admin-panel__form" id="adminLoginForm">
+                        <div class="admin-panel__field">
+                            <label for="adminEmail">Email</label>
+                            <input type="email" id="adminEmail" name="email" autocomplete="username" required>
+                        </div>
+                        <div class="admin-panel__field">
+                            <label for="adminPassword">Password</label>
+                            <input type="password" id="adminPassword" name="password" autocomplete="current-password" required>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full" id="adminLoginBtn">Sign In</button>
+                    </form>
+                    <p class="admin-panel__hint">This panel is protected by Supabase Authentication.</p>
+                </div>
+
+                <div class="admin-panel__dashboard" id="adminDashboardView" hidden>
+                    <div class="admin-panel__dashboard-shell">
+                        <aside class="admin-panel__sidebar" aria-label="Admin sections">
+                            <div class="admin-panel__brand">
+                                <p class="admin-panel__eyebrow">Staff Console</p>
+                                <h3 class="admin-panel__title">Control Panel</h3>
+                                <p class="admin-panel__session" id="adminSessionUser"></p>
+                            </div>
+                            <nav class="admin-panel__nav">
+                                <button type="button" class="admin-panel__nav-btn is-active" data-admin-section="overview">Overview</button>
+                                <button type="button" class="admin-panel__nav-btn" data-admin-section="artists">Artists</button>
+                                <button type="button" class="admin-panel__nav-btn" data-admin-section="slideshow">Slideshow</button>
+                                <button type="button" class="admin-panel__nav-btn" data-admin-section="tours">Tours Section</button>
+                                <button type="button" class="admin-panel__nav-btn" data-admin-section="news">News</button>
+                                <button type="button" class="admin-panel__nav-btn" data-admin-section="moments">Live Moments</button>
+                                <button type="button" class="admin-panel__nav-btn" data-admin-section="bookings">Bookings</button>
+                            </nav>
+                            <div class="admin-panel__sidebar-actions">
+                                <button type="button" class="btn btn--outline" id="adminRefreshBookings">Refresh Data</button>
+                                <button type="button" class="btn btn--outline" id="adminLogoutBtn">Logout</button>
+                            </div>
+                        </aside>
+
+                        <div class="admin-panel__main">
+                            <section class="admin-panel__pane is-active" data-admin-pane="overview">
+                                <div class="admin-panel__pane-header">
+                                    <p class="admin-panel__eyebrow">Dashboard</p>
+                                    <h4 class="admin-panel__pane-title">Overview</h4>
+                                </div>
+                                <div class="admin-panel__stats">
+                                    <article class="admin-panel__stat-card">
+                                        <span class="admin-panel__stat-label">Artists</span>
+                                        <strong class="admin-panel__stat-value" id="adminArtistCount">0</strong>
+                                    </article>
+                                    <article class="admin-panel__stat-card">
+                                        <span class="admin-panel__stat-label">Bookings</span>
+                                        <strong class="admin-panel__stat-value" id="adminBookingCount">0</strong>
+                                    </article>
+                                    <article class="admin-panel__stat-card">
+                                        <span class="admin-panel__stat-label">Hero Slides</span>
+                                        <strong class="admin-panel__stat-value" id="adminHeroCount">0</strong>
+                                    </article>
+                                    <article class="admin-panel__stat-card">
+                                        <span class="admin-panel__stat-label">News Cards</span>
+                                        <strong class="admin-panel__stat-value" id="adminNewsCount">0</strong>
+                                    </article>
+                                    <article class="admin-panel__stat-card">
+                                        <span class="admin-panel__stat-label">Live Moments</span>
+                                        <strong class="admin-panel__stat-value" id="adminMomentsCount">0</strong>
+                                    </article>
+                                    <article class="admin-panel__stat-card">
+                                        <span class="admin-panel__stat-label">Tour Sections</span>
+                                        <strong class="admin-panel__stat-value" id="adminTourSectionsCount">0</strong>
+                                    </article>
+                                </div>
+                                <div class="admin-panel__note">
+                                    Overview updates live as you add, edit, or remove content from any admin section.
+                                </div>
+                            </section>
+
+                            <section class="admin-panel__pane" data-admin-pane="artists" hidden>
+                                <div class="admin-panel__pane-header">
+                                    <p class="admin-panel__eyebrow">Roster Management</p>
+                                    <h4 class="admin-panel__pane-title">Add New Artist</h4>
+                                </div>
+                                <div class="admin-panel__artist-layout">
+                                    <form class="admin-panel__artist-form" id="adminAddArtistForm">
+                                        <div class="admin-panel__grid">
+                                            <div class="admin-panel__field">
+                                                <label for="adminArtistName">Artist Name</label>
+                                                <input type="text" id="adminArtistName" name="name" required>
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminArtistRole">Role / Title</label>
+                                                <input type="text" id="adminArtistRole" name="role" required>
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminArtistCategory">Category</label>
+                                                <select id="adminArtistCategory" name="categorySelect" required>
+                                                    <option value="" selected disabled>Select category</option>
+                                                    <option value="dancehall">Dancehall</option>
+                                                    <option value="reggae">Reggae</option>
+                                                    <option value="djs">DJs</option>
+                                                    <option value="bands">Bands</option>
+                                                    <option value="afro">Afro</option>
+                                                    <option value="soca">Soca</option>
+                                                    <option value="gfx">GFX/WEB</option>
+                                                    <option value="__custom__">+ Create New Category</option>
+                                                </select>
+                                            </div>
+                                            <div class="admin-panel__field is-hidden" id="adminArtistCategoryCustomWrap">
+                                                <label for="adminArtistCategoryCustom">New Category</label>
+                                                <input type="text" id="adminArtistCategoryCustom" name="categoryCustom" placeholder="e.g. gospel">
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminArtistImage">Image Path or URL</label>
+                                                <input type="text" id="adminArtistImage" name="image" placeholder="images/artists/newartist.jpg">
+                                            </div>
+                                            <div class="admin-panel__field admin-panel__field--full">
+                                                <label for="adminArtistImageFile">Or Upload Image File</label>
+                                                <input type="file" id="adminArtistImageFile" name="imageFile" accept="image/*">
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminArtistInstagram">Instagram URL</label>
+                                                <input type="url" id="adminArtistInstagram" name="instagram" placeholder="https://instagram.com/...">
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminArtistTwitter">Twitter/X URL</label>
+                                                <input type="url" id="adminArtistTwitter" name="twitter" placeholder="https://x.com/...">
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminArtistSpotify">Spotify URL</label>
+                                                <input type="url" id="adminArtistSpotify" name="spotify" placeholder="https://open.spotify.com/...">
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminArtistYouTube">YouTube URL</label>
+                                                <input type="url" id="adminArtistYouTube" name="youtube" placeholder="https://youtube.com/...">
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminArtistSubtitle">Government / Stage Name Detail</label>
+                                                <input type="text" id="adminArtistSubtitle" name="subtitle" placeholder="Legal name or profile subtitle">
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminArtistDob">DOB / Age Text</label>
+                                                <input type="text" id="adminArtistDob" name="dob" placeholder="Born ...">
+                                            </div>
+                                            <div class="admin-panel__field admin-panel__field--full">
+                                                <label for="adminArtistGenres">Genres</label>
+                                                <select id="adminArtistGenres" name="genresSelect">
+                                                    <option value="" selected>Select genre</option>
+                                                    <option value="Dancehall">Dancehall</option>
+                                                    <option value="Reggae">Reggae</option>
+                                                    <option value="Soca">Soca</option>
+                                                    <option value="Afro">Afro</option>
+                                                    <option value="Singeli">Singeli</option>
+                                                    <option value="Reggae Fusion">Reggae Fusion</option>
+                                                    <option value="__custom__">+ Custom Genre</option>
+                                                </select>
+                                            </div>
+                                            <div class="admin-panel__field admin-panel__field--full is-hidden" id="adminArtistGenresCustomWrap">
+                                                <label for="adminArtistGenresCustom">Custom Genre</label>
+                                                <input type="text" id="adminArtistGenresCustom" name="genresCustom" placeholder="e.g. Roots Reggae">
+                                            </div>
+                                            <div class="admin-panel__field admin-panel__field--full">
+                                                <label for="adminArtistDescription">Description</label>
+                                                <textarea id="adminArtistDescription" name="description" rows="3" placeholder="Artist bio..."></textarea>
+                                            </div>
+                                            <div class="admin-panel__field admin-panel__field--full">
+                                                <label for="adminArtistMetrics">Notable Metrics</label>
+                                                <textarea id="adminArtistMetrics" name="metrics" rows="2" placeholder="Streaming stats, achievements..."></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="admin-panel__form-actions">
+                                            <button type="submit" class="btn btn--primary" id="adminAddArtistBtn">Add Artist</button>
+                                            <button type="button" class="btn btn--outline" id="adminCancelEditArtistBtn" hidden>Cancel Edit</button>
+                                            <span class="admin-panel__mode" id="adminArtistFormMode">Mode: Create</span>
+                                        </div>
+                                    </form>
+
+                                    <aside class="admin-panel__preview">
+                                        <p class="admin-panel__preview-label">Live Card Preview</p>
+                                        <article class="talent-card talent-card--admin-preview" id="adminArtistPreviewCard" data-category="dancehall" data-artist="preview-artist">
+                                            <div class="talent-card__image">
+                                                <img src="images/logo.png" alt="Preview artist image" loading="lazy" id="adminPreviewImage">
+                                                <div class="talent-card__overlay">
+                                                    <div class="talent-card__socials">
+                                                        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="currentColor" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2"/></svg></a>
+                                                        <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+                                                        <a href="#" aria-label="Spotify"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 15s1.5-1 4-1 4 1 4 1M7 12s2-1.5 5-1.5 5 1.5 5 1.5M6 9s2.5-2 6-2 6 2 6 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+                                                        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#000"/></svg></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="talent-card__info">
+                                                <h3 class="talent-card__name" id="adminPreviewName">Artist Name</h3>
+                                                <p class="talent-card__role" id="adminPreviewRole">Role / Title</p>
+                                            </div>
+                                        </article>
+                                    </aside>
+                                </div>
+
+                                <div class="admin-panel__roster-admin">
+                                    <div class="admin-panel__pane-header">
+                                        <p class="admin-panel__eyebrow">Existing Roster</p>
+                                        <h5 class="admin-panel__pane-title">Edit or Remove Artists</h5>
+                                    </div>
+                                    <div class="admin-panel__field admin-panel__field--full">
+                                        <label for="adminRosterSearch">Search Artist</label>
+                                        <input type="text" id="adminRosterSearch" placeholder="Search by name, role, or category">
+                                    </div>
+                                    <div class="admin-panel__roster-list-wrap">
+                                        <table class="admin-panel__table admin-panel__table--compact">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Role</th>
+                                                    <th>Category</th>
+                                                    <th>Source</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="adminRosterBody">
+                                                <tr>
+                                                    <td colspan="5">Roster loading...</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="admin-panel__pane" data-admin-pane="slideshow" hidden>
+                                <div class="admin-panel__pane-header">
+                                    <p class="admin-panel__eyebrow">Hero Management</p>
+                                    <h4 class="admin-panel__pane-title">Slideshow</h4>
+                                </div>
+
+                                <div class="admin-panel__artist-layout">
+                                    <form class="admin-panel__artist-form" id="adminHeroSlideForm">
+                                        <div class="admin-panel__grid">
+                                            <div class="admin-panel__field admin-panel__field--full">
+                                                <label for="adminHeroImage">Slide Image URL / Path</label>
+                                                <input type="text" id="adminHeroImage" name="image" placeholder="images/hero.jpg">
+                                            </div>
+                                            <div class="admin-panel__field admin-panel__field--full">
+                                                <label for="adminHeroImageFile">Or Upload Slide Image</label>
+                                                <input type="file" id="adminHeroImageFile" name="imageFile" accept="image/*">
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminHeroAlt">Image Alt Text</label>
+                                                <input type="text" id="adminHeroAlt" name="alt" value="Hero slide">
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminHeroTagline">Tagline</label>
+                                                <input type="text" id="adminHeroTagline" name="tagline" placeholder="MAY 2026 • DATES TBA">
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminHeroTitleLine1">Title Line 1</label>
+                                                <input type="text" id="adminHeroTitleLine1" name="titleLine1" placeholder="SPICE">
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminHeroTitleLine2">Title Line 2</label>
+                                                <input type="text" id="adminHeroTitleLine2" name="titleLine2" placeholder="AFRICA TOUR">
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminHeroPrimaryLabel">Primary Button Label</label>
+                                                <input type="text" id="adminHeroPrimaryLabel" name="primaryLabel" value="View Tour">
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminHeroPrimaryHref">Primary Button Link</label>
+                                                <input type="text" id="adminHeroPrimaryHref" name="primaryHref" value="#tours">
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminHeroSecondaryLabel">Secondary Button Label</label>
+                                                <input type="text" id="adminHeroSecondaryLabel" name="secondaryLabel" value="Book Now">
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminHeroSecondaryHref">Secondary Button Link</label>
+                                                <input type="text" id="adminHeroSecondaryHref" name="secondaryHref" value="#contact">
+                                            </div>
+                                        </div>
+                                        <div class="admin-panel__form-actions">
+                                            <button type="submit" class="btn btn--primary" id="adminHeroSaveBtn">Add Slide</button>
+                                            <button type="button" class="btn btn--outline" id="adminHeroCancelEditBtn" hidden>Cancel Edit</button>
+                                            <span class="admin-panel__mode" id="adminHeroFormMode">Mode: Create</span>
+                                        </div>
+                                    </form>
+
+                                    <aside class="admin-panel__preview">
+                                        <p class="admin-panel__preview-label">Live Slide Preview</p>
+                                        <div class="admin-panel__hero-preview" id="adminHeroPreview">
+                                            <img src="images/hero.jpg" alt="Hero preview" id="adminHeroPreviewImage">
+                                            <div class="admin-panel__hero-preview-overlay">
+                                                <h5 id="adminHeroPreviewTitle">SLIDE TITLE</h5>
+                                                <p id="adminHeroPreviewTagline">TAGLINE</p>
+                                            </div>
+                                        </div>
+                                    </aside>
+                                </div>
+
+                                <div class="admin-panel__roster-admin">
+                                    <div class="admin-panel__pane-header">
+                                        <p class="admin-panel__eyebrow">Current Hero Slides</p>
+                                        <h5 class="admin-panel__pane-title">Edit / Delete Existing</h5>
+                                    </div>
+                                    <div class="admin-panel__roster-list-wrap">
+                                        <table class="admin-panel__table admin-panel__table--compact">
+                                            <thead>
+                                                <tr>
+                                                    <th>Preview</th>
+                                                    <th>Title</th>
+                                                    <th>Tagline</th>
+                                                    <th>Source</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="adminHeroSlidesBody">
+                                                <tr><td colspan="5">No slides loaded.</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="admin-panel__pane" data-admin-pane="news" hidden>
+                                <div class="admin-panel__pane-header">
+                                    <p class="admin-panel__eyebrow">Content Management</p>
+                                    <h4 class="admin-panel__pane-title">News & Updates</h4>
+                                </div>
+
+                                <div class="admin-panel__artist-layout">
+                                    <form class="admin-panel__artist-form" id="adminNewsForm">
+                                        <div class="admin-panel__grid">
+                                            <div class="admin-panel__field admin-panel__field--full">
+                                                <label for="adminNewsImage">Image URL / Path</label>
+                                                <input type="text" id="adminNewsImage" name="image" placeholder="images/spiceafrica.jpg">
+                                            </div>
+                                            <div class="admin-panel__field admin-panel__field--full">
+                                                <label for="adminNewsImageFile">Or Upload Image</label>
+                                                <input type="file" id="adminNewsImageFile" name="imageFile" accept="image/*">
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminNewsAlt">Image Alt Text</label>
+                                                <input type="text" id="adminNewsAlt" name="alt" value="News image">
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminNewsDate">Date Label</label>
+                                                <input type="text" id="adminNewsDate" name="date" value="2026">
+                                            </div>
+                                            <div class="admin-panel__field admin-panel__field--full">
+                                                <label for="adminNewsTitle">Title</label>
+                                                <input type="text" id="adminNewsTitle" name="title" placeholder="New announcement" required>
+                                            </div>
+                                            <div class="admin-panel__field admin-panel__field--full">
+                                                <label for="adminNewsExcerpt">Excerpt</label>
+                                                <textarea id="adminNewsExcerpt" name="excerpt" rows="3" placeholder="Short news summary..." required></textarea>
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminNewsLinkLabel">Link Label</label>
+                                                <input type="text" id="adminNewsLinkLabel" name="linkLabel" value="Read More">
+                                            </div>
+                                            <div class="admin-panel__field">
+                                                <label for="adminNewsLinkHref">Link URL</label>
+                                                <input type="text" id="adminNewsLinkHref" name="linkHref" value="#contact">
+                                            </div>
+                                        </div>
+                                        <div class="admin-panel__form-actions">
+                                            <button type="submit" class="btn btn--primary" id="adminNewsSaveBtn">Add News</button>
+                                            <button type="button" class="btn btn--outline" id="adminNewsCancelEditBtn" hidden>Cancel Edit</button>
+                                            <span class="admin-panel__mode" id="adminNewsFormMode">Mode: Create</span>
+                                        </div>
+                                    </form>
+
+                                    <aside class="admin-panel__preview">
+                                        <p class="admin-panel__preview-label">Live News Preview</p>
+                                        <article class="news-card admin-panel__news-preview" id="adminNewsPreviewCard">
+                                            <div class="news-card__image">
+                                                <img src="images/spiceafrica.jpg" alt="News preview image" id="adminNewsPreviewImage">
+                                            </div>
+                                            <div class="news-card__content">
+                                                <span class="news-card__date" id="adminNewsPreviewDate">2026</span>
+                                                <h3 class="news-card__title" id="adminNewsPreviewTitle">New Announcement</h3>
+                                                <p class="news-card__excerpt" id="adminNewsPreviewExcerpt">Preview of how the news card will appear on site.</p>
+                                                <a href="#contact" class="news-card__link" id="adminNewsPreviewLink">Read More</a>
+                                            </div>
+                                        </article>
+                                    </aside>
+                                </div>
+
+                                <div class="admin-panel__roster-admin">
+                                    <div class="admin-panel__pane-header">
+                                        <p class="admin-panel__eyebrow">Existing News</p>
+                                        <h5 class="admin-panel__pane-title">Edit / Delete</h5>
+                                    </div>
+                                    <div class="admin-panel__roster-list-wrap">
+                                        <table class="admin-panel__table admin-panel__table--compact">
+                                            <thead>
+                                                <tr>
+                                                    <th>Preview</th>
+                                                    <th>Date</th>
+                                                    <th>Title</th>
+                                                    <th>Source</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="adminNewsBody">
+                                                <tr><td colspan="5">No news loaded.</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="admin-panel__pane" data-admin-pane="tours" hidden>
+                                <div class="admin-panel__pane-header">
+                                    <p class="admin-panel__eyebrow">Events Management</p>
+                                    <h4 class="admin-panel__pane-title">Upcoming Section Header</h4>
+                                </div>
+
+                                <div class="admin-panel__artist-layout">
+                                    <form class="admin-panel__artist-form" id="adminTourSectionForm">
+                                        <div class="admin-panel__grid">
+                                            <div class="admin-panel__field">
+                                                <label for="adminTourSectionTag">Section Tag</label>
+                                                <input type="text" id="adminTourSectionTag" name="sectionTag" value="Upcoming" required>
+                                            </div>
+                                            <div class="admin-panel__field admin-panel__field--full">
+                                                <label for="adminTourSectionTitle">Section Title</label>
+                                                <input type="text" id="adminTourSectionTitle" name="sectionTitle" value="Africa Tours 2026" required>
+                                            </div>
+                                            <div class="admin-panel__field admin-panel__field--full">
+                                                <label class="admin-panel__checkbox-row" for="adminTourSectionActive">
+                                                    <input type="checkbox" id="adminTourSectionActive" name="isActive" checked>
+                                                    Set as active section on website
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="admin-panel__form-actions">
+                                            <button type="submit" class="btn btn--primary" id="adminTourSectionSaveBtn">Add Section Header</button>
+                                            <button type="button" class="btn btn--outline" id="adminTourSectionCancelEditBtn" hidden>Cancel Edit</button>
+                                            <span class="admin-panel__mode" id="adminTourSectionFormMode">Mode: Create</span>
+                                        </div>
+                                    </form>
+
+                                    <aside class="admin-panel__preview">
+                                        <p class="admin-panel__preview-label">Live Section Preview</p>
+                                        <div class="admin-panel__section-preview">
+                                            <div class="section__header section__header--block admin-panel__section-preview-header">
+                                                <span class="section__tag" id="adminTourSectionPreviewTag">Upcoming</span>
+                                                <h2 class="section__title section__title--block" id="adminTourSectionPreviewTitle">Africa Tours 2026</h2>
+                                            </div>
+                                        </div>
+                                    </aside>
+                                </div>
+
+                                <div class="admin-panel__roster-admin">
+                                    <div class="admin-panel__pane-header">
+                                        <p class="admin-panel__eyebrow">Saved Headers</p>
+                                        <h5 class="admin-panel__pane-title">Edit / Activate / Delete</h5>
+                                    </div>
+                                    <div class="admin-panel__roster-list-wrap">
+                                        <table class="admin-panel__table admin-panel__table--compact">
+                                            <thead>
+                                                <tr>
+                                                    <th>Tag</th>
+                                                    <th>Title</th>
+                                                    <th>Status</th>
+                                                    <th>Created</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="adminTourSectionsBody">
+                                                <tr><td colspan="5">No section headers loaded.</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="admin-panel__pane" data-admin-pane="moments" hidden>
+                                <div class="admin-panel__pane-header">
+                                    <p class="admin-panel__eyebrow">Media Management</p>
+                                    <h4 class="admin-panel__pane-title">Live Moments Posters</h4>
+                                </div>
+
+                                <form class="admin-panel__artist-form" id="adminAddPosterForm">
+                                    <div class="admin-panel__grid">
+                                        <div class="admin-panel__field admin-panel__field--full">
+                                            <label for="adminPosterImage">Image Path or URL</label>
+                                            <input type="text" id="adminPosterImage" name="image" placeholder="images/ig/new-poster.jpg">
+                                        </div>
+                                        <div class="admin-panel__field admin-panel__field--full">
+                                            <label for="adminPosterFile">Or Upload Poster File</label>
+                                            <input type="file" id="adminPosterFile" name="imageFile" accept="image/*">
+                                        </div>
+                                        <div class="admin-panel__field admin-panel__field--full">
+                                            <label for="adminPosterAlt">Poster Alt Text</label>
+                                            <input type="text" id="adminPosterAlt" name="alt" placeholder="Live moment poster" value="Booking highlight">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn--primary" id="adminAddPosterBtn">Add Poster</button>
+                                </form>
+
+                                <div class="admin-panel__roster-admin">
+                                    <div class="admin-panel__pane-header">
+                                        <p class="admin-panel__eyebrow">Current Posters</p>
+                                        <h5 class="admin-panel__pane-title">All Live Moments</h5>
+                                    </div>
+                                    <div class="admin-panel__roster-list-wrap">
+                                        <table class="admin-panel__table admin-panel__table--compact">
+                                            <thead>
+                                                <tr>
+                                                    <th>Preview</th>
+                                                    <th>Source</th>
+                                                    <th>Alt</th>
+                                                    <th>Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="adminMomentsBody">
+                                                <tr>
+                                                    <td colspan="4">No posters loaded.</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="admin-panel__pane" data-admin-pane="bookings" hidden>
+                                <div class="admin-panel__pane-header">
+                                    <p class="admin-panel__eyebrow">Leads</p>
+                                    <h4 class="admin-panel__pane-title">Bookings Inbox</h4>
+                                </div>
+                                <div class="admin-panel__table-wrap">
+                                    <table class="admin-panel__table">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Inquiry</th>
+                                                <th>Event</th>
+                                                <th>Message</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="adminBookingsBody">
+                                            <tr>
+                                                <td colspan="6">No records loaded.</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/main.js"></script>
     <!-- Vercel Speed Insights -->
     <script>
